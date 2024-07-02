@@ -1,0 +1,110 @@
+<div class="w-[1150px] h-[600px] m-auto bg-white rounded-t-md">
+  <div class="flex justify-between border-b-[1px] py-[15px] px-[30px]">
+    <h1>Add user profile</h1>
+  </div>
+  <form [formGroup]="userProfileForm" class="p-[30px] overflow-auto h-[537px]">
+    <div class="mb-[15px]">
+      <label for="element" class="block pb-[10px] font-medium">element</label>
+      <input
+        type="text"
+        id="element"
+        formControlName="element"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userProfileForm.get('element')?.hasError('required') &&
+      userProfileForm.get('element')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+    <div class="mb-[15px]">
+      <label for="user_name" class="block pb-[10px] font-medium"
+        >user_name</label
+      >
+      <input
+        type="text"
+        id="user_name"
+        formControlName="user_name"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userProfileForm.get('user_name')?.hasError('required') &&
+      userProfileForm.get('user_name')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+    <div class="mb-[15px]">
+      <label for="user_email" class="block pb-[10px] font-medium"
+        >user_email</label
+      >
+      <input
+        type="text"
+        id="user_email"
+        formControlName="user_email"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userProfileForm.get('user_email')?.hasError('required') &&
+      userProfileForm.get('user_email')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+    <div class="mb-[15px]">
+      <label for="user_birthday" class="block pb-[10px] font-medium"
+        >user_birthday</label
+      >
+      <input
+        type="text"
+        id="user_birthday"
+        formControlName="user_birthday"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userProfileForm.get('user_birthday')?.hasError('required') &&
+      userProfileForm.get('user_birthday')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+    <div class="mb-[15px]">
+      <label for="user_gender" class="block pb-[10px] font-medium"
+        >user_gender</label
+      >
+      <input
+        type="text"
+        id="user_gender"
+        formControlName="user_gender"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userProfileForm.get('user_gender')?.hasError('required') &&
+      userProfileForm.get('user_gender')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+    <div class="mb-[15px]">
+      <label for="person_type_description" class="block pb-[10px] font-medium"
+        >person_type_description</label
+      >
+      <input
+        type="text"
+        id="person_type_description"
+        formControlName="person_type_description"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userProfileForm.get('person_type_description')?.hasError('required')
+      && userProfileForm.get('person_type_description')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <button
+      type="submit"
+      (click)="onSubmit()"
+      routerLink="/admin/zodiac"
+      class="rounded-md border-[1px] p-1.5"
+    >
+      <span class="text-base">Guardar</span>
+    </button>
+  </form>
+</div>

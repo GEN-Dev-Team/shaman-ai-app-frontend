@@ -1,0 +1,115 @@
+<div class="w-[1150px] h-[600px] m-auto bg-white rounded-t-md">
+  <div class="flex justify-between border-b-[1px] py-[15px] px-[30px]">
+    <h1>Add answer</h1>
+  </div>
+  <form [formGroup]="answerForm" class="p-[30px] overflow-auto h-[537px]">
+    <div class="mb-[15px]">
+      <label for="id_question" class="block pb-[10px] font-medium"
+        >id_question</label
+      >
+      <input
+        type="text"
+        id="id_question"
+        formControlName="id_question"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(answerForm.get('id_question')?.hasError('required') &&
+      answerForm.get('id_question')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <div class="mb-[15px]">
+      <label for="id_user" class="block pb-[10px] font-medium">id_user</label>
+      <input
+        type="text"
+        id="id_user"
+        formControlName="id_user"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(answerForm.get('id_user')?.hasError('required') &&
+      answerForm.get('id_user')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <div class="mb-[15px]">
+      <label for="answer_text" class="block pb-[10px] font-medium"
+        >answer_text</label
+      >
+      <input
+        type="text"
+        id="answer_text"
+        formControlName="answer_text"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(answerForm.get('answer_text')?.hasError('required') &&
+      answerForm.get('answer_text')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <div class="mb-[15px]">
+      <label for="manager_value" class="block pb-[10px] font-medium"
+        >manager_value</label
+      >
+      <input
+        type="text"
+        id="manager_value"
+        formControlName="manager_value"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(answerForm.get('manager_value')?.hasError('required') &&
+      answerForm.get('manager_value')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <div class="mb-[15px]">
+      <label for="developer_value" class="block pb-[10px] font-medium"
+        >developer_value</label
+      >
+      <input
+        type="text"
+        id="developer_value"
+        formControlName="developer_value"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(answerForm.get('developer_value')?.hasError('required') &&
+      answerForm.get('developer_value')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <div class="mb-[15px]">
+      <label for="executor_value" class="block pb-[10px] font-medium"
+        >executor_value</label
+      >
+      <input
+        type="text"
+        id="executor_value"
+        formControlName="executor_value"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(answerForm.get('executor_value')?.hasError('required') &&
+      answerForm.get('element_name')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <button
+      type="submit"
+      (click)="onSubmit()"
+      routerLink="/admin/skill"
+      class="rounded-md border-[1px] p-1.5"
+    >
+      <span class="text-base">Guardar</span>
+    </button>
+  </form>
+</div>

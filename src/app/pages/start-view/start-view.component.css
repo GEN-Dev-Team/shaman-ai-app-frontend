@@ -1,0 +1,136 @@
+.start-view-container {
+  padding-block: 99px;
+  padding-inline: 50px;
+  background-color: #eef3f8;
+  font-family: "ruberoid-bold";
+}
+
+.start-view-model {
+  width: 1341px;
+  height: 1031px;
+  padding-top: 88px;
+  border-radius: 10px;
+  background: #eef3f8;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25),
+    0px 0px 50px 30px rgba(255, 255, 255, 0.78) inset;
+}
+
+.aecobot {
+  font-size: 30px;
+  color: #585ef3;
+  width: 218px;
+  height: 86px;
+  margin: auto;
+  padding-inline: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0px 4px 8.7px -2px #9c9fd6;
+}
+
+.title {
+  width: 1120px;
+  height: 101px;
+  font-size: 48px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.tips-form-container {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 110px;
+}
+
+.user-form {
+  align-self: flex-end;
+}
+
+.tips-container {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.sendbar {
+  width: 745px;
+  height: 59px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: auto;
+  margin-top: 70px;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0px 2px 13.5px 0px rgba(0, 0, 0, 0.25);
+
+  .sendbar-text {
+    display: flex;
+    flex-direction: row;
+    gap: 23px;
+    align-items: center;
+
+    & img {
+      margin-inline-start: 10px;
+    }
+
+    & span {
+      text-align: center;
+      font-family: "Ruberoid-regular";
+      font-size: 20px;
+    }
+  }
+
+  .send-icon-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    cursor: pointer;
+    margin-inline-end: 6px;
+    background-color: #585ef3;
+    filter: drop-shadow(0px 4px 4px rgba(24, 27, 103, 0.44));
+    display: flex; /* Habilita el flexbox en el contenedor */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+  }
+}
+
+.user-form-container {
+  width: 509px;
+  height: 479px;
+  padding-block: 59px;
+  padding-inline: 62px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0px 5px 10px -5px #56588c;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "ruberoid-regular";
+  font-size: 20px;
+
+  & input {
+    width: 380px;
+    height: 56.353px;
+    border-radius: 6px;
+    border: 1.5px solid #585ef3;
+
+    &::placeholder {
+      font-family: "plusjakartasans-regular";
+      color: #585ef3;
+    }
+  }
+}

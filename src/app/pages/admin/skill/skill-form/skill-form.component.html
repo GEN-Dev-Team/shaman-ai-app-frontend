@@ -1,0 +1,32 @@
+<div class="w-[1150px] h-[600px] m-auto bg-white rounded-t-md">
+  <div class="flex justify-between border-b-[1px] py-[15px] px-[30px]">
+    <h1>Añadir código o script</h1>
+  </div>
+  <form [formGroup]="skillForm" class="p-[30px] overflow-auto h-[537px]">
+    <div class="mb-[15px]">
+      <label for="skill_name" class="block pb-[10px] font-medium"
+        >skill_name</label
+      >
+      <input
+        type="text"
+        id="skill_name"
+        formControlName="skill_name"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(skillForm.get('skill_name')?.hasError('required') &&
+      skillForm.get('skill_name')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <button
+      type="submit"
+      (click)="onSubmit()"
+      routerLink="/admin/skill"
+      class="rounded-md border-[1px] p-1.5"
+    >
+      <span class="text-base">Guardar</span>
+    </button>
+  </form>
+</div>

@@ -1,0 +1,13 @@
+<div class="question-container">
+  <p class="question-text">{{ questionItem.question_text }}</p>
+
+  <ul class="answer-list-container">
+    @for (item of answer_list; track item.id_answer) { @if
+    (item.question.id_question == questionItem.id_question) {
+    <app-answer
+      [answerItem]="item"
+      (answerSelected)="getAnswerSelected($event)"
+    />
+    } }
+  </ul>
+</div>

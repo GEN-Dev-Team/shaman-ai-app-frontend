@@ -1,0 +1,81 @@
+<div class="w-[1150px] h-[600px] m-auto bg-white rounded-t-md">
+  <div class="flex justify-between border-b-[1px] py-[15px] px-[30px]">
+    <h1>Add user result</h1>
+  </div>
+  <form [formGroup]="userResultForm" class="p-[30px] overflow-auto h-[537px]">
+    <div class="mb-[15px]">
+      <label for="user" class="block pb-[10px] font-medium">user</label>
+      <input
+        type="text"
+        id="user"
+        formControlName="user"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userResultForm.get('user')?.hasError('required') &&
+      userResultForm.get('user')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <div class="mb-[15px]">
+      <label for="person_type" class="block pb-[10px] font-medium"
+        >person_type</label
+      >
+      <input
+        type="text"
+        id="person_type"
+        formControlName="person_type"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userResultForm.get('person_type')?.hasError('required') &&
+      userResultForm.get('person_type')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <div class="mb-[15px]">
+      <label for="result_percentage" class="block pb-[10px] font-medium"
+        >result_percentage</label
+      >
+      <input
+        type="text"
+        id="result_percentage"
+        formControlName="result_percentage"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userResultForm.get('result_percentage')?.hasError('required') &&
+      userResultForm.get('result_percentage')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <div class="mb-[15px]">
+      <label for="person_type_description" class="block pb-[10px] font-medium"
+        >person_type_description</label
+      >
+      <input
+        type="text"
+        id="person_type_description"
+        formControlName="person_type_description"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userResultForm.get('person_type_description')?.hasError('required') &&
+      userResultForm.get('person_type_description')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <button
+      type="submit"
+      (click)="onSubmit()"
+      routerLink="/admin/zodiac"
+      class="rounded-md border-[1px] p-1.5"
+    >
+      <span class="text-base">Guardar</span>
+    </button>
+  </form>
+</div>

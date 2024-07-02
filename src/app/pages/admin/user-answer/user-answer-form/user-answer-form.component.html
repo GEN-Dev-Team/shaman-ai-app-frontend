@@ -1,0 +1,58 @@
+<div class="w-[1150px] h-[600px] m-auto bg-white rounded-t-md">
+  <div class="flex justify-between border-b-[1px] py-[15px] px-[30px]">
+    <h1>Add user answer</h1>
+  </div>
+  <form [formGroup]="userAnswerForm" class="p-[30px] overflow-auto h-[537px]">
+    <div class="mb-[15px]">
+      <label for="user" class="block pb-[10px] font-medium">user</label>
+      <input
+        type="text"
+        id="user"
+        formControlName="user"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userAnswerForm.get('user')?.hasError('required') &&
+      userAnswerForm.get('user')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+    <div class="mb-[15px]">
+      <label for="question" class="block pb-[10px] font-medium">question</label>
+      <input
+        type="text"
+        id="question"
+        formControlName="question"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userAnswerForm.get('question')?.hasError('required') &&
+      userAnswerForm.get('question')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+    <div class="mb-[15px]">
+      <label for="answer" class="block pb-[10px] font-medium">answer</label>
+      <input
+        type="text"
+        id="answer"
+        formControlName="answer"
+        class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+        required
+      />
+      @if(userAnswerForm.get('answer')?.hasError('required') &&
+      userAnswerForm.get('answer')?.touched){
+      <div class="form-error text-red-700">Complete el campo</div>
+      }
+    </div>
+
+    <button
+      type="submit"
+      (click)="onSubmit()"
+      routerLink="/admin/zodiac"
+      class="rounded-md border-[1px] p-1.5"
+    >
+      <span class="text-base">Guardar</span>
+    </button>
+  </form>
+</div>

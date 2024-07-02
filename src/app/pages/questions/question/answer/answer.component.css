@@ -1,0 +1,22 @@
+.answer-item {
+  display: flex;
+  width: 274px;
+  height: 191px;
+  padding: 43px 15px 43px 14px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid #fff;
+  background: linear-gradient(
+    91deg,
+    rgba(255, 255, 255, 0.3) 93.59%,
+    rgba(255, 255, 255, 0.15) 101.68%
+  );
+  box-shadow: 0px 26px 30px 0px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(30px);
+
+  &:hover {
+    border: 2px solid #585ef3;
+    box-shadow: 0px 20px 20px 0px rgba(88, 94, 243, 0.5);
+  }
+}

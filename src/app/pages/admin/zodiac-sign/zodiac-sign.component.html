@@ -1,0 +1,42 @@
+<button routerLink="add-zodiac" class="rounded-md border-[1px] p-1.5">
+  Add zodiac sign
+</button>
+<router-outlet />
+<table
+  class="w-full text-xs text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-10 mb-52"
+>
+  <thead
+    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+  >
+    <tr>
+      <th scope="col" class="px-6 py-3">id_zodiac</th>
+      <th scope="col" class="px-6 py-3">sign_name</th>
+      <th scope="col" class="px-6 py-3">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of zodiacSignList; track item.id_zodiac ) {
+    <tr
+      class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+    >
+      <td class="px-6 py-4">{{ item.id_zodiac }}</td>
+
+      <td class="px-6 py-4">{{ item.sign_name }}</td>
+      <td class="flex items-center px-6 py-4">
+        <button
+          type="button"
+          class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+        >
+          E
+        </button>
+        <button
+          type="button"
+          class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
+        >
+          B
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

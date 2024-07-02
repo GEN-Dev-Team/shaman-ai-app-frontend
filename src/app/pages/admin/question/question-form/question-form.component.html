@@ -1,0 +1,75 @@
+<div class="w-[1150px] h-[600px] m-auto bg-white rounded-t-md">
+  <div class="flex justify-between border-b-[1px] py-[15px] px-[30px]">
+    <h1>Add question</h1>
+  </div>
+  <form [formGroup]="questionForm" class="p-[30px] overflow-auto h-[537px]">
+    <div class="grid grid-cols-2 gap-x-[60px]">
+      <div class="mb-[15px] text-[16px]">
+        <label for="skill_id" class="block pb-[10px] font-medium">
+          skill_id
+        </label>
+
+        <input
+          type="text"
+          id="skill_id"
+          formControlName="skill_id"
+          class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+          required
+        />
+        @if(questionForm.get('skill_id')?.hasError('required') &&
+        questionForm.get('skill_id')?.touched){
+        <div class="form-error text-red-700">Complete el campo</div>
+        }
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-x-[60px]">
+      <div class="mb-[15px] text-[16px]">
+        <label for="element_id" class="block pb-[10px] font-medium">
+          element_id
+        </label>
+
+        <input
+          type="text"
+          id="element_id"
+          formControlName="element_id"
+          class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+          required
+        />
+        @if(questionForm.get('element_id')?.hasError('required') &&
+        questionForm.get('element_id')?.touched){
+        <div class="form-error text-red-700">Complete el campo</div>
+        }
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-x-[60px]">
+      <div class="mb-[15px] text-[16px]">
+        <label for="question_text" class="block pb-[10px] font-medium">
+          question_text
+        </label>
+
+        <input
+          type="text"
+          id="question_text"
+          formControlName="question_text"
+          class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
+          required
+        />
+        @if(questionForm.get('question_text')?.hasError('required') &&
+        questionForm.get('question_text')?.touched){
+        <div class="form-error text-red-700">Complete el campo</div>
+        }
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      (click)="onSubmit()"
+      routerLink="/admin/question"
+      class="rounded-md border-[1px] p-1.5"
+    >
+      <span class="text-base">Guardar</span>
+    </button>
+  </form>
+</div>

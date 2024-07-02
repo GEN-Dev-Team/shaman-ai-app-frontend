@@ -1,0 +1,57 @@
+<div class="start-view-container">
+  <div class="start-view-model">
+    <span class="aecobot">AECOBOT</span>
+    <div class="title">DESCUBRE TU POTENCIAL, ¿ESTAS LISTO?</div>
+
+    <div class="tips-form-container">
+      <div class="tips-container">
+        @for (item of tipList; track item.id) {
+        <app-tip-container [tip]="item" />
+        }
+      </div>
+
+      <form [formGroup]="userProfileForm" class="user-form-container">
+        <div class="form-control">
+          <label for="user_birthday">Fecha de Nacimiento</label>
+          <input
+            type="date"
+            id="user_birthday"
+            (change)="getZodiacSign()"
+            formControlName="user_birthday"
+            placeholder="Ingresar tu Fecha de nacimiento"
+          />
+        </div>
+
+        <div class="form-control">
+          <label for="user_name">Nombre completo</label>
+          <input
+            type="text"
+            id="user_name"
+            formControlName="user_name"
+            placeholder="Ingresar tu Nombre completo"
+          />
+        </div>
+
+        <div class="form-control">
+          <label for="user_email">Correo Electronico</label>
+          <input
+            type="text"
+            id="user_email"
+            formControlName="user_email"
+            placeholder="Ingresar tu Correo Electronico"
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="sendbar">
+      <div class="sendbar-text">
+        <img src="../../../assets/images/brain.png" alt="Brain image" />
+        <span>Empezar a jugar</span>
+      </div>
+      <div (click)="onSubmit()" class="send-icon-container">
+        <app-send-icon class="send-icon" />
+      </div>
+    </div>
+  </div>
+</div>

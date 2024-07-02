@@ -1,0 +1,8 @@
+<li value="{{ answerItem.id_answer }}" class="answer-item">
+  <input
+    type="checkbox"
+    id="{{ answerItem.id_answer }}"
+    (click)="sendAnswerSelected(answerItem)"
+  />
+  <label for="{{ answerItem.id_answer }}">{{ answerItem.answer_text }}</label>
+</li>

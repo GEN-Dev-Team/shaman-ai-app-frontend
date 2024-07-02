@@ -1,0 +1,12 @@
+<div class="flex flex-col text-center gap-y-5">
+  <p>
+    Prompt: <span>{{ prompt }}</span>
+  </p>
+  <p>Respuesta:</p>
+  <ng-container *ngFor="let item of chatHistory">
+    <div class="messages">
+      <i class="fa"></i>
+      <span class="responses" [innerHTML]="formatText(item.message)"></span>
+    </div>
+  </ng-container>
+</div>
