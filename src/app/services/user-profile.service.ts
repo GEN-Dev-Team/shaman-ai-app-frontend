@@ -3,6 +3,7 @@ import { IUserProfile } from '../interfaces/UserProfile';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environment';
+import { IQuestion } from '../interfaces/Question';
 
 const base_url = environment.base;
 @Injectable({
@@ -17,8 +18,12 @@ export class UserProfileService {
     return this.http.get<IUserProfile[]>(this.apiurl);
   }
 
-  getUserProfile(id: number): Observable<IUserProfile> {
-    return this.http.get<IUserProfile>(`${this.apiurl}/${id}`);
+  getAllUserProfileQuestions(email: string): Observable<IQuestion[]> {
+    return this.http.get<IQuestion[]>(`${this.apiurl}/${email}/questions`);
+  }
+
+  getUserProfile(email: string): Observable<IUserProfile> {
+    return this.http.get<IUserProfile>(`${this.apiurl}/${email}`);
   }
 
   createUserProfile(UserProfile: IUserProfile) {

@@ -28,7 +28,7 @@ export class UserAnswerFormComponent {
   ) {
     this.userAnswerForm = this.fb.group({
       id_useranswer: new FormControl(0),
-      user: new FormControl(''),
+      userProfile: new FormControl(''),
       question: new FormControl(''),
       answer: new FormControl(''),
     });
@@ -43,7 +43,7 @@ export class UserAnswerFormComponent {
   onSubmit() {
     if (this.userAnswerForm.valid) {
       this.userAnswerService
-        .createUserAnswer(this.userAnswerForm.value)
+        .createUserProfileAnswers(this.userAnswerForm.value)
         .subscribe((response) => {
           this.getAnswers();
         });

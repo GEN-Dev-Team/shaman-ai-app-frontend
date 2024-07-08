@@ -20,6 +20,7 @@ import { UserAnswerComponent } from './pages/admin/user-answer/user-answer.compo
 import { UserAnswerFormComponent } from './pages/admin/user-answer/user-answer-form/user-answer-form.component';
 import { UserProfileFormComponent } from './pages/admin/user-profile/user-profile-form/user-profile-form.component';
 import { UserProfileComponent } from './pages/admin/user-profile/user-profile.component';
+import { ResultsComponent } from './pages/questions/results/results.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,11 @@ export const routes: Routes = [
     path: 'questions',
     component: QuestionsComponent,
     title: 'Questions',
+  },
+  {
+    path: 'results',
+    component: ResultsComponent,
+    title: 'Results',
   },
   {
     path: 'admin',

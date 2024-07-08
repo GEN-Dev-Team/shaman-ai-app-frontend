@@ -1,0 +1,10 @@
+<li class="pagination-item" (click)="changePage(currentPage.id)">
+  @if (currentPage.checked) {
+  <app-selected-answer-icon />
+  } @else {
+  <app-answer-icon />
+  }
+  <span class="page-value" [ngClass]="{ checked: currentPage.checked }">{{
+    currentPage.id
+  }}</span>
+</li>

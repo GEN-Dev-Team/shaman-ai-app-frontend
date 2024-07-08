@@ -14,6 +14,8 @@ import { IZodiacSign } from '../../interfaces/ZodiacSign';
 import { ZodiacSignService } from '../../services/zodiac-sign.service';
 import { ElementService } from '../../services/element.service';
 import { IElement } from '../../interfaces/Element';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { IUserProfile } from '../../interfaces/UserProfile';
 
 interface ZodiacSign {
   id: number;
@@ -63,13 +65,15 @@ export class StartViewComponent {
   userProfileForm: FormGroup;
   zodiacSign!: IZodiacSign;
   element!: IElement;
+  userProfile!: IUserProfile;
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private userProfileService: UserProfileService,
     private zodiacSignService: ZodiacSignService,
-    private elementService: ElementService
+    private elementService: ElementService,
+    private localStorageService: LocalStorageService
   ) {
     this.userProfileForm = this.fb.group({
       id_user: new FormControl(0),
@@ -77,7 +81,7 @@ export class StartViewComponent {
       user_name: new FormControl(''),
       user_email: new FormControl(''),
       user_birthday: new FormControl(''),
-      user_gender: new FormControl('Masculino'),
+      user_gender: new FormControl(''),
       zodiacsign: new FormControl(''),
     });
   }
@@ -106,23 +110,27 @@ export class StartViewComponent {
   ];
 
   onSubmit() {
+    this.userProfileForm.patchValue({
+      element: this.element,
+      zodiacsign: this.zodiacSign,
+      user_birthday: this.formatDate(this.userProfileForm.value.user_birthday),
+    });
+
+    this.userProfile = this.userProfileForm.value;
+
     if (this.userProfileForm.valid) {
-      this.userProfileForm.patchValue({
-        element: this.element,
-        zodiacsign: this.zodiacSign,
-        user_birthday: this.formatDate(
-          this.userProfileForm.value.user_birthday
-        ),
-      });
-      console.log('Form submitted: ', this.userProfileForm.value);
+      console.log('User Profile: ', this.userProfile);
+      console.log('Form value: ', this.userProfileForm.value);
+
       this.userProfileService
-        .createUserProfile(this.userProfileForm.value)
+        .createUserProfile(this.userProfile)
         .subscribe((response) => {
           console.log('User created successfully');
+          this.localStorageService.setItem('User Logged', this.userProfile);
           this.router.navigate(['/questions']);
         });
     } else {
-      console.log("Form isn't valid:", this.userProfileForm.value);
+      console.log("Form isn't valid:", this.userProfile);
       this.userProfileForm.markAllAsTouched();
     }
   }

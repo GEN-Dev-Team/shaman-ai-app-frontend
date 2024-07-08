@@ -1,0 +1,19 @@
+.pagination-list {
+  width: 1010px;
+  height: 80px;
+  padding-top: 120px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #56595a;
+  font-family: "ruberoid-regular";
+}
+
+.pagination-line {
+  width: 230px;
+  height: 2px;
+  background: #dce3ed;
+  margin-bottom: 15px;
+}

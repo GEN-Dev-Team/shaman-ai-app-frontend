@@ -1,0 +1,20 @@
+.pagination-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.page-value {
+  position: absolute;
+  top: 24%;
+  right: 43%;
+  color: #b6b6b6;
+  font-family: "ruberoid-regular";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.checked {
+  color: #fff;
+}

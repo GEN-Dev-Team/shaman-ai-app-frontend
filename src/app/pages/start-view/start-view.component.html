@@ -41,6 +41,23 @@
             placeholder="Ingresar tu Correo Electronico"
           />
         </div>
+
+        <div class="form-control">
+          <label for="user_gender">Género</label>
+          <select id="user_gender" formControlName="user_gender">
+            <option
+              value=""
+              disabled
+              selected
+              hidden
+              class="option-user-gender"
+            >
+              Selecciona tu género
+            </option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+          </select>
+        </div>
       </form>
     </div>
 

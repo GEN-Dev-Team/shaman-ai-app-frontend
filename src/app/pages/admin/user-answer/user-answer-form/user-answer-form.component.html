@@ -4,16 +4,18 @@
   </div>
   <form [formGroup]="userAnswerForm" class="p-[30px] overflow-auto h-[537px]">
     <div class="mb-[15px]">
-      <label for="user" class="block pb-[10px] font-medium">user</label>
+      <label for="userProfile" class="block pb-[10px] font-medium"
+        >userProfile</label
+      >
       <input
         type="text"
-        id="user"
-        formControlName="user"
+        id="userProfile"
+        formControlName="userProfile"
         class="form-control bg-transparent border block w-full rounded-md focus:ring-main-purple focus:border-main-purple"
         required
       />
-      @if(userAnswerForm.get('user')?.hasError('required') &&
-      userAnswerForm.get('user')?.touched){
+      @if(userAnswerForm.get('userProfile')?.hasError('required') &&
+      userAnswerForm.get('userProfile')?.touched){
       <div class="form-error text-red-700">Complete el campo</div>
       }
     </div>

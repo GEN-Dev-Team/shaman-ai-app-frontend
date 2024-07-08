@@ -18,4 +18,10 @@ export class QuestionComponent {
   getAnswerSelected(answerSelected: IAnswer) {
     this.answerSelected.emit(answerSelected);
   }
+
+  findAnswerIndex(answerList: IAnswer[], answerItem: IAnswer): number {
+    return answerList.findIndex(
+      (item) => item.id_answer === answerItem.id_answer
+    );
+  }
 }

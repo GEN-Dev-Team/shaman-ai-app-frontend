@@ -104,12 +104,11 @@
 
 .user-form-container {
   width: 509px;
-  height: 479px;
-  padding-block: 59px;
-  padding-inline: 62px;
+  max-height: 479px;
+  padding: 25px 62px;
   display: flex;
   flex-direction: column;
-  gap: 34px;
+  gap: 16.4px;
   border-radius: 6px;
   background: white;
   box-shadow: 0px 5px 10px -5px #56588c;
@@ -118,19 +117,36 @@
 .form-control {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   font-family: "ruberoid-regular";
   font-size: 20px;
 
-  & input {
+  & input,
+  & select {
     width: 380px;
     height: 56.353px;
+    font-family: "plusjakartasans-regular";
     border-radius: 6px;
     border: 1.5px solid #585ef3;
+    color: #585ef3;
 
     &::placeholder {
       font-family: "plusjakartasans-regular";
       color: #585ef3;
     }
   }
+}
+
+.form-control select {
+  width: 380px;
+  height: 56.353px;
+  border-radius: 6px;
+  border: 1.5px solid #585ef3;
+  font-family: "plusjakartasans-regular";
+  color: #585ef3;
+}
+
+.form-control select option.option-user-gender {
+  color: #585ef3;
+  font-family: "plusjakartasans-regular";
 }

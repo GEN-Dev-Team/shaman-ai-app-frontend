@@ -3,6 +3,7 @@ import { IUserAnswer } from '../interfaces/UserAnswer';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environment';
+import { IUserResult } from '../interfaces/UserResult';
 
 const base_url = environment.base;
 @Injectable({
@@ -17,12 +18,12 @@ export class UserAnswerService {
     return this.http.get<IUserAnswer[]>(this.apiurl);
   }
 
-  getUserAnswer(id: number): Observable<IUserAnswer> {
-    return this.http.get<IUserAnswer>(`${this.apiurl}/${id}`);
+  getUserResults(email: string): Observable<IUserResult> {
+    return this.http.get<IUserResult>(`${this.apiurl}/userresult/${email}`);
   }
 
-  createUserAnswer(UserAnswer: IUserAnswer) {
-    return this.http.post(this.apiurl, UserAnswer);
+  createUserProfileAnswers(UserAnswers: IUserAnswer) {
+    return this.http.post(this.apiurl, UserAnswers);
   }
 
   updateUserAnswer(UserAnswer: IUserAnswer) {

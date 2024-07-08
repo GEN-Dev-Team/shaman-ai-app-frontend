@@ -1,12 +1,109 @@
-<div class="flex flex-col text-center gap-y-5">
-  <p>
-    Prompt: <span>{{ prompt }}</span>
-  </p>
-  <p>Respuesta:</p>
-  <ng-container *ngFor="let item of chatHistory">
-    <div class="messages">
-      <i class="fa"></i>
-      <span class="responses" [innerHTML]="formatText(item.message)"></span>
+<div class="result-container">
+  <div class="result-modal">
+    <h1 class="title-result">
+      <span class="user-name"
+        >¡HOLA!, {{ userResults.userProfile.user_name }}
+      </span>
+      <span>TU PREDICCION SEGUN LA IA</span>
+    </h1>
+
+    <div class="result-details-container">
+      <div class="result-resume-container">
+        <div class="result-graphs">
+          @for (item of userResults.skill; track item.id_skill) {
+          <div class="result-graphs-item">
+            <span>{{ item.skill_name }}</span>
+            <div class="result-bar-item-container">
+              <div
+                class="result-bar-item-content"
+                [style.width]="item.final_score + '%'"
+                [ngClass]="{
+                  'bg-color-1': item.skill_name ==='Manejo de Herramientas'|| item.skill_name === 'Coordinación y Organización',
+                  'bg-color-5': item.skill_name === 'Adaptabilidad',
+                  'bg-color-3': item.skill_name === 'Creatividad',
+                  'bg-color-2': item.skill_name === 'Resiliencia',
+                  'bg-color-4': item.skill_name === 'Pensamiento Crítico',
+                }"
+              >
+                <div class="result-bar-item-percentage">
+                  {{ item.final_score }}
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+
+        <div class="img-result">
+          <img src="../../../assets/images/result-img.svg" alt="" />
+        </div>
+      </div>
+
+      <div>
+        <div class="skills-result-container">
+          <div class="skill-item first-skill">
+            <div class="skill-percentage-container">
+              <app-icon-result class="mx-auto" />
+              <span class="skill-percentage">
+                {{ userResults.result_developer }}%</span
+              >
+            </div>
+
+            <div class="person-type-container">Desarrollador</div>
+          </div>
+
+          <div class="skill-item second-skill">
+            <div class="skill-percentage-container">
+              <app-icon-result class="mx-auto" />
+              <span class="skill-percentage">
+                {{ userResults.result_manager }}%</span
+              >
+            </div>
+
+            <div class="person-type-container">Gestor</div>
+          </div>
+
+          <div class="skill-item third-skill">
+            <div class="skill-percentage-container">
+              <app-icon-result class="mx-auto" />
+              <span class="skill-percentage">
+                {{ userResults.result_executor }}%</span
+              >
+            </div>
+
+            <div class="person-type-container">Ejecutor</div>
+          </div>
+        </div>
+        <div class="result-description">
+          <p>
+            {{ description }}
+          </p>
+        </div>
+      </div>
     </div>
-  </ng-container>
+
+    <footer class="footer-results">
+      <img
+        src="../../../../assets/images/try-again-img.svg"
+        alt=""
+        class="try-again-img"
+      />
+      <div class="social-media-container">
+        <img src="../../../../assets/images/aecode-footer-img.svg" alt="" />
+        <img src="../../../../assets/images/coming-soon-footer.svg" alt="" />
+      </div>
+      <div class="social-media-elements">
+        <span>COMPARTE TUS RESULTADOS</span>
+        <div class="social-media-elements-list">
+          @for (item of socialMediaList; track item.name) {
+          <div>
+            <a href="{{ item.url }}">
+              <img src="{{ item.path }}" alt="{{ item.name }}" />
+            </a>
+          </div>
+          }
+        </div>
+      </div>
+    </footer>
+  </div>
 </div>

@@ -1,8 +1,24 @@
-<li value="{{ answerItem.id_answer }}" class="answer-item">
-  <input
-    type="checkbox"
-    id="{{ answerItem.id_answer }}"
-    (click)="sendAnswerSelected(answerItem)"
-  />
-  <label for="{{ answerItem.id_answer }}">{{ answerItem.answer_text }}</label>
+<li value="{{ answerItem.id_answer }}" class="answer-container">
+  <div class="answer-icon">
+    @if (!isChecked(answerItem)) {
+    <app-answer-icon />
+    } @else{
+    <app-selected-answer-icon />
+    }
+    <p>
+      @switch (indexNumber) { @case (0) {A} @case (1) {B} @case (2) {C} @case
+      (3) {D} }
+    </p>
+  </div>
+  <div class="answer-item" [class.selected]="isChecked(answerItem)">
+    <input
+      type="checkbox"
+      id="{{ answerItem.id_answer }}"
+      class="hidden"
+      (change)="toggleAnswer(answerItem)"
+      [checked]="isChecked(answerItem)"
+      (click)="sendAnswerSelected(answerItem)"
+    />
+    <label for="{{ answerItem.id_answer }}">{{ answerItem.answer_text }}</label>
+  </div>
 </li>
