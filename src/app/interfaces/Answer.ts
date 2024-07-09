@@ -8,4 +8,5 @@ export interface IAnswer {
   value_developer: number;
   value_executor: number;
   value_manager: number;
+  checked?: boolean;
 }

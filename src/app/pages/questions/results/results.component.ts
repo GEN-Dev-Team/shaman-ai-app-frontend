@@ -9,6 +9,7 @@ import { LocalStorageService } from '../../../services/local-storage.service';
 import { IUserProfile } from '../../../interfaces/UserProfile';
 import { IconResultComponent } from '../icons/icon-result/icon-result.component';
 import { IUserResult } from '../../../interfaces/UserResult';
+import { Router } from '@angular/router';
 
 interface ISocialMediaItem {
   name: string;
@@ -62,7 +63,8 @@ export class ResultsComponent implements OnInit {
   chatHistory: any[] = [];
   constructor(
     private userAnswerService: UserAnswerService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private router: Router
   ) {
     this.geminiService.getMessageHistory().subscribe((response) => {
       this.description = response.message;
@@ -92,5 +94,10 @@ export class ResultsComponent implements OnInit {
       this.prompt = '';
       await this.geminiService.generateText(data);
     }
+  }
+
+  tryAgain() {
+    this.router.navigate(['/']);
+    this.localStorageService.clear();
   }
 }

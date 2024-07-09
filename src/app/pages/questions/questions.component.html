@@ -2,7 +2,7 @@
   @for (item of paginationList; track item) {
   <app-pagination
     [currentPage]="item"
-    (changePageEvent)="changePage($event)"
+    (changePageEvent)="changePage(1)"
     (click)="item.checked = !item.checked"
   />
   @if (item.id !== 4) {
@@ -10,18 +10,25 @@
   } }
 </ol>
 
-<div class="flex flex-col text-center gap-y-5">
+<div class="flex flex-col text-center gap-y-5 pb-32">
   @for (item of paginatedQuestions; track item.id_question) {
   <app-question
     [questionItem]="item"
     [answer_list]="item.answer"
     (answerSelected)="addValueToAsnwer($event)"
   />
-  } @if (answersList.length === 12) {
+  }
+
+  <!-- <div class="buttons">
+    <button class="back-button">Volver</button>
+    <button class="next-button">Siguiente</button>
+  </div>
+
+  @if (answersList.length === 12) {
   <button (click)="showResults()" class="rounded-md mx-auto border-[1px] p-1.5">
     Ver Resultados
   </button>
-  }
+  } -->
 </div>
 
 <router-outlet />

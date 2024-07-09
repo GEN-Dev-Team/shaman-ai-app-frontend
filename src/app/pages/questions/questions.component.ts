@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { IAnswer } from '../../interfaces/Answer';
 import { IQuestion } from '../../interfaces/Question';
 import { ResultsComponent } from './results/results.component';
@@ -56,7 +56,8 @@ export class QuestionsComponent {
   constructor(
     private userAnswerService: UserAnswerService,
     private profileService: UserProfileService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -103,6 +104,26 @@ export class QuestionsComponent {
     }
 
     console.log('Answers List: ', this.answersList);
+
+    switch (this.answersList.length) {
+      case 3:
+        this.paginationList[1].checked = true;
+        this.changePage(2);
+        break;
+      case 6:
+        this.paginationList[2].checked = true;
+        this.changePage(3);
+        break;
+      case 9:
+        this.paginationList[3].checked = true;
+        this.changePage(4);
+        break;
+      case 12:
+        this.showResults();
+        break;
+      default:
+        break;
+    }
   }
 
   addValueToAsnwer(answer: IAnswer) {
@@ -128,14 +149,13 @@ export class QuestionsComponent {
     this.userAnswerService.createUserProfileAnswers(this.userAnswer).subscribe(
       (response) => {
         console.log('User results enviado: ', response);
+        this.router.navigate(['/results']);
         // Aqui puedes procesar la respuesta del POST
       },
       (error) => {
         console.error('Error: ', error);
       }
     );
-
-    // this.localStorage.clear();
   }
 
   changePage(page: number) {

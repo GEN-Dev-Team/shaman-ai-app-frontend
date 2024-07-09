@@ -24,4 +24,13 @@ export class QuestionComponent {
       (item) => item.id_answer === answerItem.id_answer
     );
   }
+
+  checkItem(answerItem: IAnswer) {
+    this.answer_list.map((item) => {
+      if (item.id_answer !== answerItem.id_answer) {
+        item.checked = false;
+      }
+    });
+    answerItem.checked = !answerItem.checked;
+  }
 }

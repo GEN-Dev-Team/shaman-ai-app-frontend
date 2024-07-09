@@ -18,11 +18,11 @@
                 class="result-bar-item-content"
                 [style.width]="item.final_score + '%'"
                 [ngClass]="{
-                  'bg-color-1': item.skill_name ==='Manejo de Herramientas'|| item.skill_name === 'Coordinación y Organización',
-                  'bg-color-5': item.skill_name === 'Adaptabilidad',
-                  'bg-color-3': item.skill_name === 'Creatividad',
-                  'bg-color-2': item.skill_name === 'Resiliencia',
-                  'bg-color-4': item.skill_name === 'Pensamiento Crítico',
+                  'bg-color-1': item.id_skill === 1|| item.id_skill === 2,
+                  'bg-color-5': item.id_skill === 3|| item.id_skill === 7,
+                  'bg-color-3': item.id_skill === 4|| item.id_skill === 8,
+                  'bg-color-2': item.id_skill === 5|| item.id_skill === 9 || item.id_skill === 12,
+                  'bg-color-4': item.id_skill === 6|| item.id_skill === 10 ||  item.id_skill === 11,
                 }"
               >
                 <div class="result-bar-item-percentage">
@@ -87,6 +87,7 @@
         src="../../../../assets/images/try-again-img.svg"
         alt=""
         class="try-again-img"
+        (click)="tryAgain()"
       />
       <div class="social-media-container">
         <img src="../../../../assets/images/aecode-footer-img.svg" alt="" />

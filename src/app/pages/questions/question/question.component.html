@@ -7,6 +7,7 @@
       [answerItem]="item"
       (answerSelected)="getAnswerSelected($event)"
       [indexNumber]="findAnswerIndex(answer_list, item)"
+      (click)="checkItem(item)"
     />
     }
   </ul>

@@ -34,8 +34,8 @@ export class AnswerComponent {
     console.log(this.selectedAnswers);
   }
 
-  isChecked(answerItem: any): boolean {
+  isChecked() {
     // Verificar si la respuesta está en la lista de seleccionadas
-    return this.selectedAnswers.includes(answerItem.id_answer);
+    this.answerItem.checked = !this.answerItem.checked;
   }
 }
