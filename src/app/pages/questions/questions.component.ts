@@ -52,6 +52,8 @@ export class QuestionsComponent {
       checked: false,
     },
   ];
+  pageSelected: number = 1;
+  isChecked: boolean = false;
 
   constructor(
     private userAnswerService: UserAnswerService,
@@ -159,7 +161,28 @@ export class QuestionsComponent {
   }
 
   changePage(page: number) {
-    console.log(this.paginatedQuestions);
+    console.log('Paginated Questions: ', this.paginatedQuestions);
     this.paginatedQuestions = this.questionList.slice((page - 1) * 3, page * 3);
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
+  nextPage() {
+    if (this.pageSelected < 4) {
+      console.log('Page Selected: ', this.pageSelected);
+      this.pageSelected += 1;
+      this.changePage(this.pageSelected);
+    }
+  }
+
+  backPage() {
+    if (this.pageSelected > 1) {
+      console.log('Page Selected: ', this.pageSelected);
+      this.pageSelected -= 1;
+      this.changePage(this.pageSelected);
+    }
   }
 }

@@ -1,7 +1,8 @@
 .start-view-container {
   padding-block: 99px;
   padding-inline: 50px;
-  background-color: #eef3f8;
+  background-image: url("/assets/images/start-view-bg-img.png");
+  background-size: cover;
   font-family: "ruberoid-bold";
 }
 

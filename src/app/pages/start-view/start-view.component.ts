@@ -16,6 +16,7 @@ import { ElementService } from '../../services/element.service';
 import { IElement } from '../../interfaces/Element';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { IUserProfile } from '../../interfaces/UserProfile';
+import { ToastrService } from 'ngx-toastr';
 
 interface ZodiacSign {
   id: number;
@@ -73,7 +74,8 @@ export class StartViewComponent {
     private userProfileService: UserProfileService,
     private zodiacSignService: ZodiacSignService,
     private elementService: ElementService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private toastServie: ToastrService
   ) {
     this.userProfileForm = this.fb.group({
       id_user: new FormControl(0),
@@ -110,33 +112,42 @@ export class StartViewComponent {
   ];
 
   onSubmit() {
-    this.userProfileForm.patchValue({
-      element: this.element,
-      zodiacsign: this.zodiacSign,
-      user_birthday: this.formatDate(this.userProfileForm.value.user_birthday),
-    });
+    const dob = new Date(this.userProfileForm.value.user_birthday);
 
-    this.userProfile = this.userProfileForm.value;
-
-    if (this.userProfileForm.valid) {
-      console.log('User Profile: ', this.userProfile);
-      console.log('Form value: ', this.userProfileForm.value);
-
-      this.userProfileService
-        .createUserProfile(this.userProfile)
-        .subscribe((response) => {
-          console.log('User created successfully');
-          this.localStorageService.setItem('User Logged', this.userProfile);
-          this.router.navigate(['/questions']);
-        });
+    if (!this.isAdult(dob)) {
+      this.toastServie.error('El usuario debe tener al menos 18 años.');
+      return undefined;
     } else {
-      console.log("Form isn't valid:", this.userProfile);
-      this.userProfileForm.markAllAsTouched();
+      this.userProfileForm.patchValue({
+        element: this.element,
+        zodiacsign: this.zodiacSign,
+        user_birthday: this.formatDate(
+          this.userProfileForm.value.user_birthday
+        ),
+      });
+
+      this.userProfile = this.userProfileForm.value;
+      if (this.userProfileForm.valid) {
+        console.log('User Profile: ', this.userProfile);
+        console.log('Form value: ', this.userProfileForm.value);
+
+        this.userProfileService
+          .createUserProfile(this.userProfile)
+          .subscribe((response) => {
+            console.log('User created successfully');
+            this.localStorageService.setItem('User Logged', this.userProfile);
+            this.router.navigate(['/questions']);
+          });
+      } else {
+        console.log("Form isn't valid:", this.userProfile);
+        this.userProfileForm.markAllAsTouched();
+      }
     }
   }
 
   getZodiacSign(): IZodiacSign | void {
     const dob = new Date(this.userProfileForm.value.user_birthday);
+
     console.log('dob: ', dob);
     console.log('dob: ', this.userProfileForm.value.user_birthday);
 
@@ -153,6 +164,20 @@ export class StartViewComponent {
     }
 
     return undefined;
+  }
+
+  isAdult(dob: Date): boolean {
+    const today = new Date();
+    const age = today.getFullYear() - dob.getFullYear();
+    const monthDifference = today.getMonth() - dob.getMonth();
+    const dayDifference = today.getDate() - dob.getDate();
+
+    // Check if the birthday has not occurred yet this year
+    if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+      return age > 18;
+    }
+
+    return age >= 18;
   }
 
   isDateInRange(date: string, start: string, end: string): boolean {
