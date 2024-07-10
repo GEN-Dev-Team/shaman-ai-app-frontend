@@ -93,19 +93,19 @@ export class StartViewComponent {
   tipList: ITip[] = [
     {
       id: 1,
-      tip_title: 'Consejo 1',
+      tip_title: 'Tip 1',
       tip_description:
         'Sé tu mismo y responde con sinceridad para averiguar tu tipo de personalidad.',
     },
     {
       id: 2,
-      tip_title: 'Consejo 2',
+      tip_title: 'Tip 2',
       tip_description:
         'Sé tu mismo y responde con sinceridad para averiguar tu tipo de personalidad.',
     },
     {
       id: 3,
-      tip_title: 'Consejo 3',
+      tip_title: 'Tip 3',
       tip_description:
         'Sé tu mismo y responde con sinceridad para averiguar tu tipo de personalidad.',
     },

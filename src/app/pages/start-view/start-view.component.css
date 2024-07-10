@@ -1,15 +1,16 @@
 .start-view-container {
-  padding-block: 99px;
-  padding-inline: 50px;
+  max-width: 1440px;
+  height: 100vh;
+  padding: 28px 114px;
   background-image: url("/assets/images/start-view-bg-img.png");
   background-size: cover;
   font-family: "ruberoid-bold";
 }
 
 .start-view-model {
-  width: 1341px;
-  height: 1031px;
-  padding-top: 88px;
+  max-width: 1212px;
+  padding-top: 24px;
+  padding-bottom: 32px;
   border-radius: 10px;
   background: #eef3f8;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25),
@@ -17,9 +18,9 @@
 }
 
 .aecobot {
-  font-size: 30px;
+  font-size: 28px;
   color: #585ef3;
-  width: 218px;
+  max-width: 218px;
   height: 86px;
   margin: auto;
   padding-inline: 28px;
@@ -33,12 +34,9 @@
 }
 
 .title {
-  width: 1120px;
-  height: 101px;
-  font-size: 48px;
+  font-size: 38px;
   margin: auto;
-  margin-top: 30px;
-  margin-bottom: 50px;
+  margin-block: 30px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -46,8 +44,9 @@
 
 .tips-form-container {
   display: flex;
-  justify-content: space-between;
-  padding-inline: 110px;
+  flex-direction: row;
+  padding-inline: 46px;
+  gap: 46px;
 }
 
 .user-form {
@@ -55,13 +54,14 @@
 }
 
 .tips-container {
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
-  gap: 17px;
+  gap: 25px;
 }
 
 .sendbar {
-  width: 745px;
+  max-width: 745px;
   height: 59px;
   display: flex;
   justify-content: space-between;
@@ -85,7 +85,7 @@
     & span {
       text-align: center;
       font-family: "Ruberoid-regular";
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 
@@ -107,6 +107,7 @@
   width: 509px;
   max-height: 479px;
   padding: 25px 62px;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 16.4px;
@@ -120,12 +121,15 @@
   flex-direction: column;
   gap: 5px;
   font-family: "ruberoid-regular";
-  font-size: 20px;
+  font-size: 16px;
 
   & input,
   & select {
-    width: 380px;
-    height: 56.353px;
+    max-width: 100%;
+    padding-inline: 13px;
+    padding-block: 8px;
+    font-size: 12px;
+    height: 40px;
     font-family: "plusjakartasans-regular";
     border-radius: 6px;
     border: 1.5px solid #585ef3;
@@ -139,7 +143,7 @@
 }
 
 .form-control select {
-  width: 380px;
+  max-width: 380px;
   height: 56.353px;
   border-radius: 6px;
   border: 1.5px solid #585ef3;
@@ -150,4 +154,39 @@
 .form-control select option.option-user-gender {
   color: #585ef3;
   font-family: "plusjakartasans-regular";
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1300px) {
+  .aecobot {
+    font-size: 18px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .start-view-container {
+    padding: 29px 17px;
+  }
+
+  .tips-container {
+    flex-direction: row;
+    gap: 13px;
+  }
+
+  .tips-form-container {
+    flex-direction: column;
+    padding-inline: 15px;
+  }
+
+  .user-form-container {
+    width: 100%;
+    padding: 15px 14px;
+  }
+
+  .sendbar {
+    margin-top: 22px;
+    margin-inline: 15px;
+  }
 }
