@@ -1,6 +1,6 @@
 .start-view-container {
   max-width: 1440px;
-  height: 100vh;
+  height: 100%;
   padding: 28px 114px;
   background-image: url("/assets/images/start-view-bg-img.png");
   background-size: cover;
@@ -160,6 +160,7 @@
 @media (max-width: 1300px) {
   .aecobot {
     font-size: 18px;
+    height: 58px;
   }
 
   .title {
