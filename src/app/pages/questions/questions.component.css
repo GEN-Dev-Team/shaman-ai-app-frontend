@@ -1,11 +1,11 @@
 .questions-container {
-  width: 100%;
+  width: auto;
   background-image: url("/assets/images/questions-bg-img.png");
   background-size: cover;
 }
 
 .pagination-list {
-  width: 1010px;
+  max-width: 1010px;
   height: 80px;
   padding-top: 120px;
   margin-inline: auto;
@@ -62,4 +62,13 @@
     --degrade,
     linear-gradient(102deg, #9da1ff 13.93%, #585ef3 85.84%)
   );
+}
+
+@media (max-width: 1300px) {
+  .pagination-list {
+    height: 40px;
+    padding-top: 60px;
+    padding-bottom: 25px;
+    margin-inline: 33px;
+  }
 }

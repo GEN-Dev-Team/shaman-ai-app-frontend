@@ -18,3 +18,9 @@
 .checked {
   color: #fff;
 }
+
+@media (max-width: 1300px) {
+  .page-value {
+    font-size: 18px;
+  }
+}

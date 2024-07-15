@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
       height="88"
       viewBox="0 0 88 88"
       fill="none"
+      [class]="class"
     >
       <g filter="url(#filter0_bd_130_545)">
         <circle

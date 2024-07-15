@@ -1,8 +1,8 @@
 <li class="pagination-item" (click)="changePage(currentPage.id)">
   @if (currentPage.checked) {
-  <app-selected-answer-icon />
+  <app-selected-answer-icon class="max-lg:size-16" />
   } @else {
-  <app-answer-icon />
+  <app-answer-icon class="max-lg:size-16" />
   }
   <span class="page-value" [ngClass]="{ checked: currentPage.checked }">{{
     currentPage.id

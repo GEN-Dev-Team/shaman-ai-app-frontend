@@ -1,5 +1,5 @@
 .question-container {
-  width: 1220px;
+  max-width: 1220px;
   margin-inline: auto;
   margin-top: 115px;
   display: flex;
@@ -41,4 +41,23 @@
   margin-inline: 24px;
   color: #56595a;
   font-family: "ruberoid-regular";
+}
+
+@media (max-width: 1300px) {
+  .question-container {
+    margin-inline: 15px;
+    margin-top: 25px;
+  }
+
+  .question-text {
+    height: fit-content;
+    padding-block: 10px;
+    font-size: 10px;
+  }
+
+  .answer-list-container {
+    flex-direction: column;
+    gap: 16px;
+    margin-block: 15px;
+  }
 }
