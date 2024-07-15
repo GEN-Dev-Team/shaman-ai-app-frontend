@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-icon-result',
@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
       height="138"
       viewBox="0 0 140 138"
       fill="none"
+      [class]="class"
     >
       <g filter="url(#filter0_bd_188_7741)">
         <ellipse
@@ -101,4 +102,6 @@ import { Component } from '@angular/core';
   `,
   styles: ``,
 })
-export class IconResultComponent {}
+export class IconResultComponent {
+  @Input() class = '';
+}

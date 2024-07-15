@@ -93,7 +93,7 @@
     .result-bar-item-container {
       display: flex;
       padding: 4px;
-      width: 145px;
+      max-width: 145px;
       height: 23px;
       margin-top: 5px;
       border-radius: 20px;
@@ -176,7 +176,7 @@
 .skills-result-container {
   display: grid;
   grid-template-columns: repeat(3, 199px);
-  width: 742px;
+  max-width: 742px;
   height: auto;
   gap: 13px;
   margin-bottom: 28px;
@@ -205,7 +205,7 @@
       position: absolute;
       top: 33%;
       right: 35%;
-      width: 59px;
+      max-width: 59px;
       height: 57px;
       flex-direction: column;
       justify-content: center;
@@ -266,8 +266,8 @@
 
 .result-description {
   display: flex;
-  width: 630px;
-  height: 230px;
+  max-width: 630px;
+  height: auto;
   padding: 20px 16px;
   align-items: center;
   gap: 24px;
@@ -355,4 +355,156 @@
   display: flex;
   flex-direction: row;
   gap: 24px;
+}
+
+@media (max-width: 1450px) {
+  .result-container {
+    padding: 11px;
+  }
+  .result-modal {
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 45px;
+    padding-inline: 11px;
+  }
+
+  .title-result {
+    font-size: 22px;
+
+    .user-name {
+      font-size: 26px;
+    }
+
+    span:last-child {
+      margin-top: 15px;
+      line-height: normal;
+    }
+  }
+
+  .result-details-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .result-resume-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .result-graphs {
+      grid-auto-rows: 40px;
+      width: auto;
+      height: 250px;
+      padding: 11px 7px;
+      gap: 10px;
+      background-size: auto 85%;
+      background-position-x: 50%;
+      background-position-y: 84%;
+
+      .result-graphs-item {
+        height: 23px;
+
+        span {
+          font-size: 9.5px;
+          height: auto;
+        }
+      }
+
+      .result-bar-item-container {
+        max-width: 99px;
+        height: 12px;
+      }
+
+      .result-bar-item-content {
+        height: 7px;
+        margin-top: -2px;
+
+        .result-bar-item-percentage {
+          width: 18px;
+          height: 18px;
+          top: -90%;
+          font-size: 9px;
+        }
+      }
+    }
+
+    .img-result {
+      display: flex;
+      justify-content: center;
+      width: auto;
+      max-height: 250px;
+      padding: 20px 16px;
+      align-items: center;
+      gap: 24px;
+      border-radius: 0px 4px 4px 0px;
+      border: 2px solid #fff;
+      box-shadow: 0px 0px 13.1px 0px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(25px);
+    }
+  }
+
+  .skills-result-container {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(30%, 1fr));
+    height: auto;
+    gap: 7px;
+    margin-bottom: 9px;
+
+    .skill-item {
+      height: auto;
+      padding: 13px 10px;
+      gap: 14px;
+
+      .skill-percentage {
+        top: 33%;
+        right: 21%;
+        font-size: 16px;
+      }
+    }
+
+    .person-type-container {
+      font-size: 8.5px;
+      max-width: 93px;
+      height: 25px;
+      padding: 0;
+      border: 1px solid white;
+      margin-inline: auto;
+    }
+  }
+
+  .result-description {
+    font-size: 12px;
+  }
+
+  .footer-results {
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 15px 14px;
+    background-image: none;
+  }
+
+  .try-again-img {
+    margin-top: 20px;
+    width: 41px;
+    cursor: pointer;
+  }
+
+  .social-media-container {
+    align-items: center;
+    height: 50px;
+    gap: 30%;
+
+    img:first-child {
+      width: 30%;
+    }
+
+    img:last-child {
+      width: 100%;
+    }
+  }
+
+  .social-media-elements {
+    display: none;
+  }
 }
