@@ -452,12 +452,12 @@
 
     .skill-item {
       height: auto;
-      padding: 13px 10px;
+      padding: 13px 1px;
       gap: 14px;
 
       .skill-percentage {
         top: 33%;
-        right: 21%;
+        right: 27%;
         font-size: 16px;
       }
     }
