@@ -100,7 +100,8 @@ export class ResultsComponent implements OnInit {
           console.log('User Results: ', this.userResults);
           this.personType = this.userResults.personType.person_type_name
             .trim()
-            .toLowerCase();
+            .toLowerCase()
+            .replace(/\s+/g, '');
           if (this.userResults.userProfile.user_gender === 'Masculino') {
             this.sexo = 'h';
           } else {
@@ -119,24 +120,6 @@ export class ResultsComponent implements OnInit {
           this.sendData();
         });
     }
-
-    this.personType = this.userResults.personType.person_type_name.trim();
-    if (this.userResults.userProfile.user_gender === 'Masculino') {
-      this.sexo = 'm';
-    } else {
-      this.sexo = 'h';
-    }
-
-    console.log('El sexo es:', this.sexo);
-    console.log('El person type es:', this.personType);
-    console.log(
-      'URL: ',
-      'https://github.com/Sthepen-EA/Media-files/blob/main/shaman-app/Bot-images/' +
-        this.personType +
-        '-' +
-        this.sexo +
-        '.png?raw=true'
-    );
   }
 
   async sendData() {
