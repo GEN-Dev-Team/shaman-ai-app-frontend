@@ -34,13 +34,26 @@
 
 @media (max-width: 1300px) {
   .title-container {
+    justify-content: center;
     width: 100%;
     margin-inline: auto;
+    padding-block: 9px;
     font-size: 12px;
+    gap: 10px;
+
+    > :nth-child(1) {
+      margin-inline: auto;
+    }
+
+    span {
+      margin-inline: auto;
+      line-height: 26px;
+    }
   }
 
   .tip-container {
     flex-direction: column;
+    gap: 0;
 
     > :nth-child(2) {
       margin-inline: auto;
