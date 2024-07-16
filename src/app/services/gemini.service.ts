@@ -21,7 +21,6 @@ export class GeminiService {
     const response = await result.response;
     const text = response.text();
 
-    console.log(text);
     this.messageHistory.next({
       from: 'bot',
       message: text,

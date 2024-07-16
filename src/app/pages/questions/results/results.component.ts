@@ -54,9 +54,11 @@ export class ResultsComponent implements OnInit {
     },
   ];
 
-  prompt: string =
-    'Genera un texto breve de 50-60 palabras que describa el perfil profesional basado en los porcentajes obtenidos en un test de personalidad. El texto debe resaltar y explicar por qué una categoría es más prominente que las otras, destacar el potencial del usuario, sugerir cómo puede mejorar, recomendar actividades que se ajusten mejor a su perfil y mencionar oportunidades profesionales. Omite detalles sobre habilidades blandas y duras, ya que se mencionarán en otro lugar. El usuario ha completado un test de personalidad profesional en el ámbito de la ingeniería civil o ingeniería en general. Usa un tono animador, revelador, directo y profesional.';
+  prompt: string = '';
   description: string = '';
+  personType: string = '';
+  sexo: string = '';
+  path_image: string = '';
 
   geminiService: GeminiService = inject(GeminiService);
 
@@ -74,7 +76,6 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserResults();
-    this.sendData();
   }
 
   getUserResults() {
@@ -83,15 +84,64 @@ export class ResultsComponent implements OnInit {
         .getUserResults(this.userProfile.user_email)
         .subscribe((response) => {
           this.userResults = response;
+          this.prompt =
+            'Genera un parrafo de 60 palabras que describa el perfil profesional de un usuario que ha completado un test de personalidad obteniendo los siguientes resultados: gestor ' +
+            this.userResults.result_manager +
+            '%, ejecutor ' +
+            this.userResults.result_executor +
+            '%, desarrollador ' +
+            this.userResults.result_developer +
+            '%, tipo de perfil ' +
+            this.userResults.personType.person_type_name +
+            ' y contexto de ' +
+            this.userResults.person_type_description +
+            '. Sugiere áreas de mejora, actividades y oportunidades para potenciar su perfil profesional en ingeniería. Usa un tono animador, revelador, directo y profesional.';
+          console.log('El prompt es:', this.prompt);
           console.log('User Results: ', this.userResults);
+          this.personType = this.userResults.personType.person_type_name
+            .trim()
+            .toLowerCase();
+          if (this.userResults.userProfile.user_gender === 'Masculino') {
+            this.sexo = 'h';
+          } else {
+            this.sexo = 'm';
+          }
+          this.path_image =
+            'https://github.com/Sthepen-EA/Media-files/blob/main/shaman-app/' +
+            this.personType +
+            '-' +
+            this.sexo +
+            '.png?raw=true';
+
+          console.log('El sexo es:', this.sexo);
+          console.log('El person type es:', this.personType);
+          console.log('URL: ', this.path_image);
+          this.sendData();
         });
     }
+
+    this.personType = this.userResults.personType.person_type_name.trim();
+    if (this.userResults.userProfile.user_gender === 'Masculino') {
+      this.sexo = 'm';
+    } else {
+      this.sexo = 'h';
+    }
+
+    console.log('El sexo es:', this.sexo);
+    console.log('El person type es:', this.personType);
+    console.log(
+      'URL: ',
+      'https://github.com/Sthepen-EA/Media-files/blob/main/shaman-app/Bot-images/' +
+        this.personType +
+        '-' +
+        this.sexo +
+        '.png?raw=true'
+    );
   }
 
   async sendData() {
     if (this.prompt) {
       const data = this.prompt;
-      this.prompt = '';
       await this.geminiService.generateText(data);
     }
   }
