@@ -1,5 +1,13 @@
 <div class="question-container">
-  <p class="question-text">{{ questionItem.question_text }}</p>
+  <p
+    class="question-text"
+    [ngClass]="{
+      'first-question':
+        this.firstQuestion?.id_question === questionItem.id_question
+    }"
+  >
+    {{ questionItem.question_text }}
+  </p>
 
   <ul class="answer-list-container">
     @for (item of answer_list; track item.id_answer) {

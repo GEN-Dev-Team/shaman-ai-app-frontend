@@ -75,6 +75,7 @@
 
   label {
     font-size: 10px;
+    text-align: start;
   }
 
   .answer-item {

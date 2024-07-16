@@ -22,11 +22,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "ruberoid-regular";
   font-size: 48px;
   font-style: normal;
   line-height: 65px; /* 135.417% */
-  color: #3e2c80;
+  color: black;
   font-size: 46px;
   font-style: normal;
   font-weight: 900;
@@ -34,11 +33,19 @@
   text-transform: uppercase;
 
   .user-name {
-    color: #000;
+    color: #3e2c80;
     font-family: "plusjakartasans-regular";
     font-size: 50px;
     font-style: normal;
     line-height: normal;
+  }
+
+  .user-hi {
+    font-family: "plusjakartasans-bold";
+  }
+
+  span {
+    font-family: "plusjakartasans-bold";
   }
 }
 
@@ -170,6 +177,10 @@
     border: 2px solid #fff;
     box-shadow: 0px 0px 13.1px 0px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(25px);
+
+    img {
+      height: max(100%);
+    }
   }
 }
 
@@ -357,47 +368,48 @@
   gap: 24px;
 }
 
-@media (max-width: 1450px) {
+@media (max-width: 720px) {
   .result-container {
-    padding: 11px;
+    padding: 0;
   }
   .result-modal {
-    height: 100%;
-    padding-top: 20px;
-    padding-bottom: 45px;
-    padding-inline: 11px;
+    background-color: transparent;
+    height: auto;
+    padding: 62px 0 0 0;
   }
 
   .title-result {
     font-size: 22px;
+    text-align: center;
+    padding: 0 11px;
 
     .user-name {
-      font-size: 26px;
+      font-size: 25px;
+      line-height: normal;
     }
 
     span:last-child {
-      margin-top: 15px;
+      margin-top: 7px;
       line-height: normal;
     }
   }
 
   .result-details-container {
+    margin-top: 14px;
+    margin-bottom: 24px;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
+    padding: 0 11px;
   }
 
   .result-resume-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
     .result-graphs {
       grid-auto-rows: 40px;
       width: auto;
       height: 250px;
       padding: 11px 7px;
-      gap: 10px;
-      background-size: auto 85%;
+      gap: 13px;
+      background-size: auto 78%;
       background-position-x: 50%;
       background-position-y: 84%;
 
@@ -405,13 +417,15 @@
         height: 23px;
 
         span {
-          font-size: 9.5px;
-          height: auto;
+          text-align: center;
+          font-size: 8.5px;
+          height: 20px;
         }
       }
 
       .result-bar-item-container {
-        max-width: 99px;
+        margin-inline: auto;
+        width: 90%;
         height: 12px;
       }
 
@@ -433,7 +447,7 @@
       justify-content: center;
       width: auto;
       height: 250px;
-      padding: 20px 16px;
+      padding: 0;
       align-items: center;
       gap: 24px;
       border-radius: 0px 4px 4px 0px;
@@ -452,16 +466,26 @@
     grid-template-columns: repeat(3, minmax(30%, 1fr));
     height: auto;
     gap: 7px;
-    margin-bottom: 9px;
+    margin-bottom: 14px;
 
     .skill-item {
       height: auto;
       padding: 13px 1px;
       gap: 14px;
+    }
+
+    .skill-percentage-container {
+      margin-inline: auto;
+
+      width: 113px;
+
+      .icon-result {
+        position: relative;
+      }
 
       .skill-percentage {
-        top: 33%;
-        right: 26%;
+        position: block;
+        left: 28%;
         font-size: 16px;
       }
     }
@@ -478,37 +502,73 @@
 
   .result-description {
     font-size: 12px;
+    height: fit-content;
+    padding: 9px 11px 7px 10px;
   }
 
   .footer-results {
-    justify-content: center;
+    flex-direction: column;
+    background-image: none;
     width: 100%;
     height: auto;
-    padding: 15px 14px;
-    background-image: none;
-  }
+    padding: 0;
+    position: inherit;
+    gap: 10px;
+    border: none;
 
-  .try-again-img {
-    margin-top: 20px;
-    width: 41px;
-    cursor: pointer;
+    .try-again-img {
+      width: 70px;
+      position: absolute;
+      top: 45%;
+      right: 40%;
+      z-index: 1;
+    }
   }
 
   .social-media-container {
-    align-items: center;
-    height: 50px;
-    gap: 30%;
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    justify-content: space-between;
+    width: 100%;
+    height: 83px;
+    padding: 14px 15px;
+    border-radius: 6px 6px 0 0;
+    background-color: #3e2c80;
 
-    img:first-child {
-      width: 30%;
+    .second-img {
+      width: 116px;
     }
 
-    img:last-child {
-      width: 100%;
+    a {
+      width: auto;
+      height: fit-content;
+
+      img {
+        width: 124px;
+      }
     }
   }
 
   .social-media-elements {
-    display: none;
+    flex-direction: column;
+    background-color: transparent;
+    gap: 0;
+    align-items: start;
+    padding: 0 19px;
+
+    span {
+      font-size: 9px;
+    }
+  }
+
+  .social-media-elements-list {
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
+
+    img {
+      width: 22px;
+    }
   }
 }

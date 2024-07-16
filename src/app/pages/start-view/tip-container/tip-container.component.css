@@ -30,7 +30,6 @@
   font-size: 16px;
   box-shadow: 0px 6px 10px -5px #56588c;
   font-family: "plusjakartasans-regular";
-  text-wrap: pretty;
 }
 
 @media (max-width: 1300px) {

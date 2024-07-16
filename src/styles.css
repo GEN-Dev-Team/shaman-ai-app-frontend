@@ -18,6 +18,18 @@
     format("truetype");
 }
 
+@font-face {
+  font-family: "plusjakartasans-medium";
+  src: url("./assets/fonts/Plus-Jakarta/PlusJakartaSans-Medium.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "plusjakartasans-bold";
+  src: url("./assets/fonts/Plus-Jakarta/PlusJakartaSans-Bold.ttf")
+    format("truetype");
+}
+
 body {
   margin: 0;
 }

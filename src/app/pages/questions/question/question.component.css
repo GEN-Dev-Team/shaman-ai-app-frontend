@@ -53,11 +53,18 @@
     height: fit-content;
     padding-block: 10px;
     font-size: 10px;
+    text-align: start;
   }
 
   .answer-list-container {
     flex-direction: column;
     gap: 16px;
     margin-block: 15px;
+  }
+
+  .first-question {
+    border-radius: 6px 6px 0px 0px;
+    background: #5a60f3;
+    border: 2px solid #585ef3;
   }
 }

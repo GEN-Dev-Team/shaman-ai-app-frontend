@@ -64,11 +64,15 @@
   );
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 720px) {
   .pagination-list {
     height: 40px;
     padding-top: 60px;
     padding-bottom: 25px;
     margin-inline: 33px;
+  }
+
+  .questions-list {
+    gap: 0;
   }
 }

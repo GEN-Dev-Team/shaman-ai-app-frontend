@@ -54,6 +54,7 @@ export class QuestionsComponent {
   ];
   pageSelected: number = 1;
   isChecked: boolean = false;
+  firstQuestion!: IQuestion;
 
   constructor(
     private userAnswerService: UserAnswerService,
@@ -76,6 +77,8 @@ export class QuestionsComponent {
       .subscribe((response) => {
         this.questionList = response;
         console.log('Profile Questions: ', response);
+        this.firstQuestion = response[0];
+
         this.changePage(1);
       });
   }
