@@ -84,20 +84,20 @@ export class ResultsComponent implements OnInit {
         .getUserResults(this.userProfile.user_email)
         .subscribe((response) => {
           this.userResults = response;
-          this.prompt =
-            'Genera un parrafo de 60 palabras que describa el perfil profesional de un usuario que ha completado un test de personalidad obteniendo los siguientes resultados: gestor ' +
-            this.userResults.result_manager +
-            '%, ejecutor ' +
-            this.userResults.result_executor +
-            '%, desarrollador ' +
-            this.userResults.result_developer +
-            '%, tipo de perfil ' +
-            this.userResults.personType.person_type_name +
-            ' y contexto de ' +
-            this.userResults.person_type_description +
-            '. Sugiere áreas de mejora, actividades y oportunidades para potenciar su perfil profesional en ingeniería. Usa un tono animador, revelador, directo y profesional.';
-          console.log('El prompt es:', this.prompt);
-          console.log('User Results: ', this.userResults);
+          // this.prompt =
+          //   'Genera un parrafo de 60 palabras que describa el perfil profesional de un usuario que ha completado un test de personalidad obteniendo los siguientes resultados: gestor ' +
+          //   this.userResults.result_manager +
+          //   '%, ejecutor ' +
+          //   this.userResults.result_executor +
+          //   '%, desarrollador ' +
+          //   this.userResults.result_developer +
+          //   '%, tipo de perfil ' +
+          //   this.userResults.personType.person_type_name +
+          //   ' y contexto de ' +
+          //   this.userResults.person_type_description +
+          //   '. Sugiere áreas de mejora, actividades y oportunidades para potenciar su perfil profesional en ingeniería. Usa un tono animador, revelador, directo y profesional.';
+          // console.log('El prompt es:', this.prompt);
+          // console.log('User Results: ', this.userResults);
           this.personType = this.userResults.personType.person_type_name
             .trim()
             .toLowerCase()
@@ -114,10 +114,11 @@ export class ResultsComponent implements OnInit {
             this.sexo +
             '.png?raw=true';
 
-          console.log('El sexo es:', this.sexo);
-          console.log('El person type es:', this.personType);
-          console.log('URL: ', this.path_image);
-          this.sendData();
+          // console.log('El sexo es:', this.sexo);
+          // console.log('El person type es:', this.personType);
+          // console.log('URL: ', this.path_image);
+          // this.sendData();
+          console.log('User Results: ', this.userResults);
         });
     }
   }
