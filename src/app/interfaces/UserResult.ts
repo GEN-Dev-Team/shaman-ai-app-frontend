@@ -10,5 +10,6 @@ export interface IUserResult {
   result_developer: number;
   result_executor: number;
   person_type_description: string;
-  skill: ISkill[];
+  skillderecho: ISkill[];
+  skillizquierdo: ISkill[];
 }

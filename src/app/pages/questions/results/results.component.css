@@ -63,9 +63,8 @@
   justify-content: space-between;
 
   .result-graphs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 60px;
+    display: flex;
+    flex-direction: row;
     width: 360px;
     height: 488px;
     padding: 45px 7px;
@@ -79,8 +78,16 @@
     background-position-x: 50%;
     background-position-y: 84%;
 
+    .skill-container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 29px;
+    }
+
     .result-graphs-item {
-      height: 23px;
+      height: auto;
 
       span {
         color: #000;

@@ -11,28 +11,55 @@
     <div class="result-details-container">
       <div class="result-resume-container">
         <div class="result-graphs">
-          @for (item of userResults.skill; track item.id_skill) {
-          <div class="result-graphs-item">
-            <span>{{ item.skill_name }}</span>
-            <div class="result-bar-item-container">
-              <div
-                class="result-bar-item-content"
-                [style.width]="item.final_score + '%'"
-                [ngClass]="{
-                  'bg-color-1': item.id_skill === 1|| item.id_skill === 2,
-                  'bg-color-5': item.id_skill === 3|| item.id_skill === 7,
-                  'bg-color-3': item.id_skill === 4|| item.id_skill === 8,
-                  'bg-color-2': item.id_skill === 5|| item.id_skill === 9 || item.id_skill === 12,
-                  'bg-color-4': item.id_skill === 6|| item.id_skill === 10 ||  item.id_skill === 11,
-                }"
-              >
-                <div class="result-bar-item-percentage">
-                  {{ item.final_score }}
+          <div class="skill-container">
+            @for (item of userResults.skillizquierdo; track item.id_skill) {
+            <div class="result-graphs-item">
+              <span>{{ item.skill_name }}</span>
+              <div class="result-bar-item-container">
+                <div
+                  class="result-bar-item-content"
+                  [style.width]="item.final_score + '%'"
+                  [ngClass]="{
+                      'bg-color-1': item.id_skill === 1|| item.id_skill === 2,
+                      'bg-color-5': item.id_skill === 3|| item.id_skill === 7,
+                      'bg-color-3': item.id_skill === 4|| item.id_skill === 8,
+                      'bg-color-2': item.id_skill === 5|| item.id_skill === 9 || item.id_skill === 12,
+                      'bg-color-4': item.id_skill === 6|| item.id_skill === 10 ||  item.id_skill === 11,
+                    }"
+                >
+                  <div class="result-bar-item-percentage">
+                    {{ item.final_score }}
+                  </div>
                 </div>
               </div>
             </div>
+            }
           </div>
-          }
+
+          <div class="skill-container">
+            @for (item of userResults.skillderecho; track item.id_skill) {
+            <div class="result-graphs-item">
+              <span>{{ item.skill_name }}</span>
+              <div class="result-bar-item-container">
+                <div
+                  class="result-bar-item-content"
+                  [style.width]="item.final_score + '%'"
+                  [ngClass]="{
+                    'bg-color-1': item.id_skill === 1|| item.id_skill === 2,
+                    'bg-color-5': item.id_skill === 3|| item.id_skill === 7,
+                    'bg-color-3': item.id_skill === 4|| item.id_skill === 8,
+                    'bg-color-2': item.id_skill === 5|| item.id_skill === 9 || item.id_skill === 12,
+                    'bg-color-4': item.id_skill === 6|| item.id_skill === 10 ||  item.id_skill === 11,
+                  }"
+                >
+                  <div class="result-bar-item-percentage">
+                    {{ item.final_score }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            }
+          </div>
         </div>
 
         <div class="img-result">
