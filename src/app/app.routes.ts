@@ -26,7 +26,7 @@ export const routes: Routes = [
   {
     path: '',
     component: StartViewComponent,
-    title: 'Start',
+    title: 'ShamanAI',
   },
   {
     path: 'questions',

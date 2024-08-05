@@ -1,5 +1,4 @@
 .tip-container {
-  max-width: 100%;
   display: flex;
   flex-direction: row;
   margin-inline: auto;
@@ -7,7 +6,8 @@
 }
 
 .title-container {
-  width: 114px;
+  width: 141px;
+  height: 109px;
   padding-block: 19px;
   padding-inline: 14px;
   display: flex;
@@ -21,6 +21,7 @@
 
 .description-container {
   max-width: 367px;
+  height: 109px;
   padding-block: 31px;
   padding-inline: 35px;
   margin-inline: auto;

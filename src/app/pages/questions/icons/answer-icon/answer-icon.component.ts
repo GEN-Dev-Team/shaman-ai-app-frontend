@@ -7,8 +7,8 @@ import { Component, Input } from '@angular/core';
   template: `
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="88"
-      height="88"
+      width="153"
+      height="153"
       viewBox="0 0 88 88"
       fill="none"
       [class]="class"

@@ -33,24 +33,24 @@ export class ResultsComponent implements OnInit {
     {
       name: 'WhatsApp',
       path: '../../../../assets/images/social-media/whatsapp.svg',
-      url: 'https://www.linkedin.com/',
+      url: `https://wa.me/+51933606600?=Hola AECODE. ¡Mira! Quiero compartirte los resultados del Shaman AI.`,
     },
     {
       name: 'LinkedIn',
       path: '../../../../assets/images/social-media/linkedin.svg',
 
-      url: 'https://github.com/',
+      url: 'linkedin.com/company/aecode-ai/',
     },
     {
       name: 'Instagram',
       path: '../../../../assets/images/social-media/instagram.svg',
 
-      url: 'https://github.com/',
+      url: 'https://www.instagram.com/aecode.ai/',
     },
     {
       name: 'Facebook',
       path: '../../../../assets/images/social-media/facebook.svg',
-      url: 'https://github.com/',
+      url: 'https://www.facebook.com/aeccode',
     },
   ];
 

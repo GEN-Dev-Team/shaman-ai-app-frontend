@@ -1,6 +1,6 @@
 .questions-container {
   width: auto;
-  background-image: url("/assets/images/questions-bg-img.png");
+  background-image: url("/assets/images/questions-bg-img.webp");
   background-size: cover;
 }
 
@@ -22,6 +22,10 @@
   height: 2px;
   background: #dce3ed;
   margin-bottom: 15px;
+}
+
+.pagination-line-marked {
+  background: #7837dc;
 }
 
 .buttons {

@@ -95,19 +95,19 @@ export class StartViewComponent {
       id: 1,
       tip_title: 'Tip 1',
       tip_description:
-        'Sé tú mismo y responde sinceramente para descubrir tu tipo de personalidad.',
+        'Sé tu mismo y responde con sinceridad para averiguar tu tipo de personalidad.',
     },
     {
       id: 2,
       tip_title: 'Tip 2',
       tip_description:
-        'Responde honestamente las 12 preguntas para que la IA prediga tu potencial profesional.',
+        'Es fundamental que tus respuestas sean un reflejo genuino de tus acciones.',
     },
     {
       id: 3,
       tip_title: 'Tip 3',
       tip_description:
-        'Tu autenticidad en las respuestas asegurará las predicciones más exactas de la IA.',
+        'Sé honesto y abierto, no hay respuestas correctas o incorrectas.',
     },
   ];
 

@@ -7,7 +7,10 @@
       (click)="item.checked = !item.checked"
     />
     @if (item.id !== 4) {
-    <div class="pagination-line"></div>
+    <div
+      class="pagination-line"
+      [ngClass]="{ 'pagination-line-marked': item.checked }"
+    ></div>
     } }
   </ol>
 

@@ -10,6 +10,7 @@ import { IUserProfile } from '../../interfaces/UserProfile';
 import { IUserAnswer } from '../../interfaces/UserAnswer';
 import { UserAnswerService } from '../../services/user-answer.service';
 import { PaginationComponent } from './question/pagination/pagination.component';
+import { CommonModule } from '@angular/common';
 
 interface IPaginationItem {
   id: number;
@@ -24,6 +25,7 @@ interface IPaginationItem {
     ResultsComponent,
     QuestionComponent,
     PaginationComponent,
+    CommonModule,
   ],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.css',

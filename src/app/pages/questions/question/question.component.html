@@ -3,7 +3,7 @@
     class="question-text"
     [ngClass]="{
       'first-question':
-        this.firstQuestion?.id_question === questionItem.id_question
+        this.firstQuestion.id_question === questionItem.id_question
     }"
   >
     {{ questionItem.question_text }}
