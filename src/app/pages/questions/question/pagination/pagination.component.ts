@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 interface IPaginationItem {
   id: number;
   checked: boolean;
+  wasShowed: boolean;
 }
 @Component({
   selector: 'app-pagination',
@@ -16,6 +17,21 @@ interface IPaginationItem {
 export class PaginationComponent {
   @Output() changePageEvent = new EventEmitter<number>();
   @Input() currentPage!: IPaginationItem;
+  @Input() pageSelected!: number;
+  @Input() pageToChange!: number;
+  @Input() isBacking!: boolean;
+
+  ngOnChanges() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    if (this.pageSelected === this.currentPage.id && !this.isBacking) {
+      this.currentPage.checked = true;
+    }
+
+    if (this.pageToChange === this.currentPage.id && this.isBacking) {
+      this.currentPage.checked = false;
+    }
+  }
 
   changePage(page: number) {
     console.log(page);

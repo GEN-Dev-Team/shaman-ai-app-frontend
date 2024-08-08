@@ -8,6 +8,7 @@
 
 .start-view-model {
   max-width: 1212px;
+  height: 694px;
   padding: 24px 46px 32px;
   margin-inline: auto;
   border-radius: 10px;
@@ -20,9 +21,9 @@
   font-size: 28px;
   color: #585ef3;
   max-width: 218px;
-  height: 86px;
+  height: 58px;
   margin: auto;
-  padding-inline: 28px;
+  padding-inline: 19px;
   display: flex;
   flex-direction: column;
   justify-content: center;

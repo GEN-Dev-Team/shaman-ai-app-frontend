@@ -14,7 +14,9 @@ import { CommonModule } from '@angular/common';
 export class QuestionComponent {
   @Input() questionItem!: IQuestion;
   @Input() answer_list!: IAnswer[];
+  @Input() user_answer_list!: IAnswer[];
   @Input() firstQuestion!: IQuestion;
+  @Input() answerChecked!: IAnswer;
   @Output() answerSelected = new EventEmitter<IAnswer>();
 
   ngOnInit(): void {
@@ -40,5 +42,15 @@ export class QuestionComponent {
       }
     });
     answerItem.checked = !answerItem.checked;
+  }
+
+  checkAnswerList() {
+    this.answer_list.forEach((answer_item) => {
+      this.user_answer_list.forEach((user_answer_item) => {
+        if (answer_item.id_answer === user_answer_item.id_answer) {
+          answer_item.checked = true;
+        }
+      });
+    });
   }
 }

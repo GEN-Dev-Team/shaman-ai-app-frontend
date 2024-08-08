@@ -22,8 +22,7 @@
 .description-container {
   max-width: 367px;
   height: 109px;
-  padding-block: 31px;
-  padding-inline: 35px;
+  padding: 31px 28px;
   margin-inline: auto;
   border-radius: 6px;
   background: white;

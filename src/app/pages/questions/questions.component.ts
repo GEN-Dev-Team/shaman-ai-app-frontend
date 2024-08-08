@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 interface IPaginationItem {
   id: number;
   checked: boolean;
+  wasShowed: boolean;
 }
 @Component({
   selector: 'app-questions',
@@ -40,23 +41,30 @@ export class QuestionsComponent {
     {
       id: 1,
       checked: true,
+      wasShowed: false,
     },
     {
       id: 2,
       checked: false,
+      wasShowed: false,
     },
     {
       id: 3,
       checked: false,
+      wasShowed: false,
     },
     {
       id: 4,
       checked: false,
+      wasShowed: false,
     },
   ];
   pageSelected: number = 1;
   isChecked: boolean = false;
   firstQuestion!: IQuestion;
+  isLoaded: boolean = false;
+  isBacking: boolean = false;
+  pageToChange: number = 1;
 
   constructor(
     private userAnswerService: UserAnswerService,
@@ -78,10 +86,10 @@ export class QuestionsComponent {
       .getAllUserProfileQuestions(email)
       .subscribe((response) => {
         this.questionList = response;
-        console.log('Profile Questions: ', response);
+        // console.log('Profile Questions: ', response);
         this.firstQuestion = response[0];
-
         this.changePage(1);
+        this.isLoaded = true;
       });
   }
 
@@ -94,7 +102,7 @@ export class QuestionsComponent {
         this.localStorage.clear();
         this.userProfile = response;
         this.localStorage.setItem('User Logged', this.userProfile);
-        console.log('User Profile: ', this.userProfile);
+        // console.log('User Profile: ', this.userProfile);
       });
   }
 
@@ -105,32 +113,32 @@ export class QuestionsComponent {
 
     if (existingAnswerIndex !== -1) {
       this.answersList[existingAnswerIndex] = answer;
-      console.log('Question already answered, updating answer.');
+      // console.log('Question already answered, updating answer.');
     } else {
       this.addAnswer(answer);
     }
 
-    console.log('Answers List: ', this.answersList);
+    // console.log('Answers List: ', this.answersList);
 
-    switch (this.answersList.length) {
-      case 3:
-        this.paginationList[1].checked = true;
-        this.changePage(2);
-        break;
-      case 6:
-        this.paginationList[2].checked = true;
-        this.changePage(3);
-        break;
-      case 9:
-        this.paginationList[3].checked = true;
-        this.changePage(4);
-        break;
-      case 12:
-        this.showResults();
-        break;
-      default:
-        break;
-    }
+    // switch (this.answersList.length) {
+    //   case 3:
+    //     this.paginationList[1].checked = true;
+    //     this.changePage(2);
+    //     break;
+    //   case 6:
+    //     this.paginationList[2].checked = true;
+    //     this.changePage(3);
+    //     break;
+    //   case 9:
+    //     this.paginationList[3].checked = true;
+    //     this.changePage(4);
+    //     break;
+    //   case 12:
+    //     this.showResults();
+    //     break;
+    //   default:
+    //     break;
+    // }
   }
 
   addValueToAsnwer(answer: IAnswer) {
@@ -151,22 +159,24 @@ export class QuestionsComponent {
       answer: this.answersList!,
     };
 
-    console.log('User results enviado: ', this.userAnswer);
+    // console.log('User results enviado: ', this.userAnswer);
 
     this.userAnswerService.createUserProfileAnswers(this.userAnswer).subscribe(
       (response) => {
-        console.log('User results enviado: ', response);
+        // console.log('User results enviado: ', response);
         this.router.navigate(['/results']);
         // Aqui puedes procesar la respuesta del POST
       },
       (error) => {
-        console.error('Error: ', error);
+        // console.error('Error: ', error);
       }
     );
   }
 
   changePage(page: number) {
-    console.log('Paginated Questions: ', this.paginatedQuestions);
+    // console.log('Paginated Questions: ', this.paginatedQuestions);
+    // console.log('Answers List: ', this.answersList);
+    // console.log('Paginated Number: ', page);
     this.paginatedQuestions = this.questionList.slice((page - 1) * 3, page * 3);
 
     window.scrollTo({
@@ -177,17 +187,22 @@ export class QuestionsComponent {
 
   nextPage() {
     if (this.pageSelected < 4) {
-      console.log('Page Selected: ', this.pageSelected);
+      this.pageToChange = this.pageSelected;
       this.pageSelected += 1;
       this.changePage(this.pageSelected);
+      this.isBacking = false;
+      // // console.log('Page Selected: ', this.pageSelected);
     }
   }
 
   backPage() {
     if (this.pageSelected > 1) {
-      console.log('Page Selected: ', this.pageSelected);
+      this.pageToChange = this.pageSelected;
       this.pageSelected -= 1;
       this.changePage(this.pageSelected);
+      this.isBacking = true;
+      // // console.log('Page Selected: ', this.pageSelected);
+      // // console.log('Page to change: ', this.pageSelected);
     }
   }
 }

@@ -1,10 +1,16 @@
 <div class="questions-container">
   <ol class="pagination-list">
     @for (item of paginationList; track item) {
-    <app-pagination
-      [currentPage]="item"
+    <!-- <app-pagination [currentPage]="item"
+    [currentPage]="item"
       (changePageEvent)="changePage($event)"
       (click)="item.checked = !item.checked"
+      /> -->
+    <app-pagination
+      [currentPage]="item"
+      [pageSelected]="pageSelected"
+      [pageToChange]="pageToChange"
+      [isBacking]="isBacking"
     />
     @if (item.id !== 4) {
     <div
@@ -17,6 +23,7 @@
   <div class="questions-list flex flex-col text-center gap-y-5 pb-28">
     @for (item of paginatedQuestions; track item.id_question) {
     <app-question
+      [user_answer_list]="answersList"
       [firstQuestion]="firstQuestion"
       [questionItem]="item"
       [answer_list]="item.answer"
@@ -24,6 +31,16 @@
     />
     }
   </div>
+
+  @if (isLoaded) {
+  <div class="button-container">
+    <button (click)="backPage()" class="prev-question-button">Volver</button>
+    <button (click)="nextPage()" class="next-question-button">Siguiente</button>
+    @if(answersList.length === 12) {
+    <button (click)="showResults()" class="send-answers-button">Enviar</button>
+    }
+  </div>
+  }
 </div>
 
 <router-outlet />
