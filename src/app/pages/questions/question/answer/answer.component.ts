@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IAnswer } from '../../../../interfaces/Answer';
 import { AnswerIconComponent } from '../../icons/answer-icon/answer-icon.component';
 import { SelectedAnswerIconComponent } from '../../icons/selected-answer-icon/selected-answer-icon.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-answer',
   standalone: true,
-  imports: [AnswerIconComponent, SelectedAnswerIconComponent],
+  imports: [AnswerIconComponent, SelectedAnswerIconComponent, CommonModule],
   templateUrl: './answer.component.html',
   styleUrl: './answer.component.css',
 })
@@ -17,6 +18,13 @@ export class AnswerComponent {
 
   sendAnswerSelected(answerSelected: IAnswer) {
     this.answerSelected.emit(answerSelected);
+    const percentage = 60;
+    const scrollAmount = window.innerHeight * (percentage / 100);
+
+    window.scrollTo({
+      top: window.scrollY + scrollAmount,
+      behavior: 'smooth',
+    });
   }
 
   // Lista de respuestas seleccionadas

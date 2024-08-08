@@ -11,14 +11,14 @@ import { Component, Input } from '@angular/core';
       width="153"
       height="153"
       viewBox="0 0 88 88"
-      fill="none"
+      fill="url(#grad2)"
     >
       <g filter="url(#filter0_bd_115_571)">
         <circle
           cx="44"
           cy="34"
           r="23"
-          fill="url(#paint0_radial_115_571)"
+          fill="url(#grad2)"
           shape-rendering="crispEdges"
         />
         <circle
@@ -114,6 +114,15 @@ import { Component, Input } from '@angular/core';
         >
           <stop stop-color="white" />
           <stop offset="1" stop-color="white" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <svg width="0" height="0">
+      <defs>
+        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#585EF3;stop-opacity:0.7" />
+          <stop offset="100%" style="stop-color:#8488EE;stop-opacity:1" />
         </linearGradient>
       </defs>
     </svg>

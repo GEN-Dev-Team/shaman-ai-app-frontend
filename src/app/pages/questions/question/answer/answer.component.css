@@ -12,6 +12,10 @@
     right: 95px;
     z-index: 1;
     cursor: pointer;
+
+    .pchecked {
+      color: white;
+    }
   }
 
   p {

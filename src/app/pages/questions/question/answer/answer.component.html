@@ -9,7 +9,7 @@
     } @else{
     <app-answer-icon class="max-lg:size-16 size-[88px]" />
     }
-    <p>
+    <p [ngClass]="{ pchecked: answerItem.checked }">
       @switch (indexNumber) { @case (0) {A} @case (1) {B} @case (2) {C} @case
       (3) {D} }
     </p>
