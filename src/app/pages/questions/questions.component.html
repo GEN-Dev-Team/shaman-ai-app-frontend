@@ -35,9 +35,10 @@
   @if (isLoaded) {
   <div class="button-container">
     <button (click)="backPage()" class="prev-question-button">Volver</button>
-    <button (click)="nextPage()" class="next-question-button">Siguiente</button>
-    @if(answersList.length === 12) {
+    @if(pageSelected === 4) {
     <button (click)="showResults()" class="send-answers-button">Enviar</button>
+    } @else {
+    <button (click)="nextPage()" class="next-question-button">Siguiente</button>
     }
   </div>
   }

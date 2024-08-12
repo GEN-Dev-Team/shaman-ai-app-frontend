@@ -46,6 +46,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  border: 1px solid white;
   border-radius: 10px;
   box-shadow: 0px 14px 20px 0px rgba(42, 51, 83, 0.8);
   color: #fff;
@@ -54,18 +55,17 @@
 }
 
 .next-question-button {
+  background: var(
+    --degrade,
+    linear-gradient(102deg, #9da1ff 13.93%, #585ef3 85.84%)
+  );
+}
+
+.prev-question-button {
   background: linear-gradient(
     102deg,
     #b3b9cd 13.93%,
     rgba(20, 20, 28, 0.93) 82.33%
-  );
-  box-shadow: 0px 14px 20px 0px rgba(42, 51, 83, 0.8);
-}
-
-.prev-question-button {
-  background: var(
-    --degrade,
-    linear-gradient(102deg, #9da1ff 13.93%, #585ef3 85.84%)
   );
 }
 
@@ -76,6 +76,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  border: solid 1px white;
   border-radius: 10px;
   box-shadow: 0px 14px 20px 0px rgba(42, 51, 83, 0.8);
   color: #fff;

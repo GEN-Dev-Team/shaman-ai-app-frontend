@@ -11,6 +11,7 @@ import { IUserAnswer } from '../../interfaces/UserAnswer';
 import { UserAnswerService } from '../../services/user-answer.service';
 import { PaginationComponent } from './question/pagination/pagination.component';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 interface IPaginationItem {
   id: number;
@@ -70,7 +71,8 @@ export class QuestionsComponent {
     private userAnswerService: UserAnswerService,
     private profileService: UserProfileService,
     private localStorage: LocalStorageService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -107,38 +109,25 @@ export class QuestionsComponent {
   }
 
   updateOrAddAnswer(answer: IAnswer) {
-    const existingAnswerIndex = this.answersList.findIndex(
+    const existingQuestionIndex = this.answersList.findIndex(
       (a) => a.id_question === answer.id_question
     );
+    const existingAnswer = this.answersList.find(
+      (a) => a.id_answer === answer.id_answer
+    );
 
-    if (existingAnswerIndex !== -1) {
-      this.answersList[existingAnswerIndex] = answer;
+    if (existingQuestionIndex !== -1) {
+      this.answersList[existingQuestionIndex] = answer;
       // console.log('Question already answered, updating answer.');
     } else {
       this.addAnswer(answer);
     }
 
-    // console.log('Answers List: ', this.answersList);
+    if (existingAnswer?.id_question && existingQuestionIndex === 0) {
+      this.answersList.splice(this.answersList.indexOf(existingAnswer), 1);
+    }
 
-    // switch (this.answersList.length) {
-    //   case 3:
-    //     this.paginationList[1].checked = true;
-    //     this.changePage(2);
-    //     break;
-    //   case 6:
-    //     this.paginationList[2].checked = true;
-    //     this.changePage(3);
-    //     break;
-    //   case 9:
-    //     this.paginationList[3].checked = true;
-    //     this.changePage(4);
-    //     break;
-    //   case 12:
-    //     this.showResults();
-    //     break;
-    //   default:
-    //     break;
-    // }
+    console.log('Answers List: ', this.answersList);
   }
 
   addValueToAsnwer(answer: IAnswer) {
@@ -150,6 +139,13 @@ export class QuestionsComponent {
   }
 
   showResults() {
+    if (this.answersList.length !== 12) {
+      this.toastService.error(
+        'Por favor, responde todas las preguntas antes de enviar tus resultados.'
+      );
+      return;
+    }
+
     // Obtener el perfil del usuario desde el local storage
     this.userProfile = this.localStorage.getItem<IUserProfile>('User Logged')!;
 
