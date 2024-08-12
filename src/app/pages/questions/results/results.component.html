@@ -126,18 +126,6 @@
         class="try-again-img lg:hidden"
         (click)="tryAgain()"
       />
-      <div class="social-media-elements">
-        <span>COMPARTE TUS RESULTADOS</span>
-        <div class="social-media-elements-list">
-          @for (item of socialMediaList; track item.name) {
-          <div>
-            <a href="{{ item.url }}">
-              <img src="{{ item.path }}" alt="{{ item.name }}" />
-            </a>
-          </div>
-          }
-        </div>
-      </div>
 
       <div class="social-media-container">
         <img
@@ -154,6 +142,19 @@
         <a href="https://aecode.ai/" target="_blank"
           ><img src="../../../../assets/images/coming-soon-footer.svg" alt="" />
         </a>
+      </div>
+
+      <div class="social-media-elements">
+        <span>COMPARTE TUS RESULTADOS</span>
+        <div class="social-media-elements-list">
+          @for (item of socialMediaList; track item.name) {
+          <div class="social-media-elements-item">
+            <a href="{{ item.url }}">
+              <img src="{{ item.path }}" alt="{{ item.name }}" />
+            </a>
+          </div>
+          }
+        </div>
       </div>
     </footer>
   </div>

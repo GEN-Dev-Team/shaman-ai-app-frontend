@@ -6,8 +6,9 @@
 }
 
 .result-modal {
-  width: 100%;
+  width: 1362px;
   height: 909px;
+  margin-inline: auto;
   border-radius: 10px;
   padding-inline: 26px;
   position: relative;
@@ -304,17 +305,17 @@
   color: #000;
   text-align: justify;
   font-family: "plusjakartasans-regular";
-  font-size: 17px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 130%;
 }
 
 .footer-results {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 1390px;
+  width: 1375px;
   height: 123px;
   padding: 25px 40px;
   border-radius: 10px;
@@ -373,13 +374,23 @@
   display: flex;
   flex-direction: row;
   gap: 24px;
+
+  .social-media-elements-item {
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
 @media (max-width: 720px) {
   .result-container {
     padding: 0;
   }
+
   .result-modal {
+    width: 100%;
     background-color: transparent;
     height: auto;
     padding: 62px 0 0 0;
