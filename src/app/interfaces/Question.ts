@@ -8,4 +8,5 @@ export interface IQuestion {
   element: IElement;
   question_text: string;
   answer: IAnswer[];
+  order?: number;
 }

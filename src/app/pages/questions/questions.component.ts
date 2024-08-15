@@ -92,6 +92,10 @@ export class QuestionsComponent {
         this.firstQuestion = response[0];
         this.changePage(1);
         this.isLoaded = true;
+
+        this.questionList.forEach((question) => {
+          question.order = this.questionList.indexOf(question) + 1;
+        });
       });
   }
 

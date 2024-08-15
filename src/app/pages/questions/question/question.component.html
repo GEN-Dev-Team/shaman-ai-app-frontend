@@ -6,7 +6,10 @@
         this.firstQuestion.id_question === questionItem.id_question
     }"
   >
-    {{ questionItem.question_text }}
+    <span>
+      <span>{{ questionItem.order }}: </span>
+      {{ questionItem.question_text }}
+    </span>
   </p>
 
   <ul class="answer-list-container">
