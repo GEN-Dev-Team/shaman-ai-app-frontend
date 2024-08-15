@@ -90,6 +90,10 @@
 }
 
 @media (max-width: 720px) {
+  .questions-container {
+    padding-bottom: 34px;
+  }
+
   .pagination-list {
     height: 40px;
     padding-top: 60px;
@@ -98,6 +102,24 @@
   }
 
   .questions-list {
+    padding-bottom: 31px;
     gap: 0;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 80px;
+  }
+
+  .next-question-button,
+  .prev-question-button,
+  .send-answers-button {
+    width: 108px;
+    height: 37px;
+    gap: 10px;
+    text-align: center;
+    font-size: 15px;
   }
 }
