@@ -18,6 +18,7 @@ export class QuestionComponent {
   @Input() firstQuestion!: IQuestion;
   @Input() answerChecked!: IAnswer;
   @Output() answerSelected = new EventEmitter<IAnswer>();
+  answerIndex: number = -1;
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -25,8 +26,16 @@ export class QuestionComponent {
     console.log('First question: ', this.firstQuestion);
   }
 
+  ngOnChanges(): void {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+    this.answerIndex = -1;
+  }
+
   getAnswerSelected(answerSelected: IAnswer) {
     this.answerSelected.emit(answerSelected);
+
+    this.answerIndex = answerSelected.id_answer;
   }
 
   findAnswerIndex(answerList: IAnswer[], answerItem: IAnswer): number {

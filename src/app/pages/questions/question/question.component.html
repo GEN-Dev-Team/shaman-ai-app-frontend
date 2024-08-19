@@ -1,4 +1,7 @@
-<div class="question-container">
+<div
+  class="question-container"
+  [ngClass]="{ 'question-answered': this.answerIndex !== -1 }"
+>
   <p
     class="question-text"
     [ngClass]="{

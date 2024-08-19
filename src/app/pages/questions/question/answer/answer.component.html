@@ -5,9 +5,14 @@
 >
   <div class="answer-icon">
     @if (answerItem.checked) {
-    <app-selected-answer-icon class="max-lg:size-16 size-[88px]" />
+
+    <!-- <app-selected-answer-icon class="max-lg:size-16 size-[88px]" /> -->
+    <div class="selected-answer-icon"></div>
+
     } @else{
-    <app-answer-icon class="max-lg:size-16 size-[88px]" />
+    <div class="answered-icon"></div>
+
+    <!-- <app-answer-icon class="max-lg:size-16 size-[88px]" /> -->
     }
     <p [ngClass]="{ pchecked: answerItem.checked }">
       @switch (indexNumber) { @case (0) {A} @case (1) {B} @case (2) {C} @case

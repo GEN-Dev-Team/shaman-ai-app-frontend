@@ -140,6 +140,13 @@ export class QuestionsComponent {
 
   addAnswer(answer: IAnswer) {
     this.answersList.push(answer);
+    const percentage = 60;
+    const scrollAmount = window.innerHeight * (percentage / 100);
+
+    window.scrollTo({
+      top: window.scrollY + scrollAmount,
+      behavior: 'smooth',
+    });
   }
 
   showResults() {

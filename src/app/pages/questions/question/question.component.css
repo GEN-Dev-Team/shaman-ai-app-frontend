@@ -18,6 +18,13 @@
   }
 }
 
+.question-answered {
+  .question-text {
+    background: #5a60f3;
+    border: 2px solid #585ef3;
+  }
+}
+
 .question-text {
   height: 80px;
   padding-inline: 25px;

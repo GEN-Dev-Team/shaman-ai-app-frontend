@@ -18,13 +18,6 @@ export class AnswerComponent {
 
   sendAnswerSelected(answerSelected: IAnswer) {
     this.answerSelected.emit(answerSelected);
-    // const percentage = 60;
-    // const scrollAmount = window.innerHeight * (percentage / 100);
-
-    // window.scrollTo({
-    //   top: window.scrollY + scrollAmount,
-    //   behavior: 'smooth',
-    // });
   }
 
   // Lista de respuestas seleccionadas
